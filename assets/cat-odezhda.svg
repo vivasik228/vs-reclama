@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <path d="M40 30 L60 20 L80 30 L85 90 L35 90 Z" fill="#48a216" opacity=".15"/>
+  <path d="M40 30 L60 20 L80 30 L75 55 L60 48 L45 55 Z" stroke="#48a216" stroke-width="3" fill="none"/>
+  <circle cx="60" cy="65" r="12" stroke="#CD2122" stroke-width="3"/>
+  <text x="60" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#CD2122">VS</text>
+</svg>
