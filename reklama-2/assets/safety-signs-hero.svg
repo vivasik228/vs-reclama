@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520">
+  <rect width="920" height="520" fill="#ffffff"/>
+  <rect x="1" y="1" width="918" height="518" fill="none" stroke="#dddddd" stroke-width="2"/>
+
+  <g transform="translate(40 40)">
+    <polygon points="70,10 130,115 10,115" fill="#FFCC00" stroke="#222" stroke-width="3"/>
+    <text x="70" y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="48" font-weight="700" fill="#222">!</text>
+  </g>
+  <g transform="translate(200 40)">
+    <circle cx="70" cy="62" r="58" fill="#fff" stroke="#E3000F" stroke-width="8"/>
+    <line x1="28" y1="20" x2="112" y2="104" stroke="#E3000F" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(360 40)">
+    <circle cx="70" cy="62" r="58" fill="#0052CC"/>
+    <rect x="52" y="38" width="36" height="48" rx="4" fill="#fff"/>
+  </g>
+  <g transform="translate(520 40)">
+    <rect x="10" y="10" width="120" height="120" rx="8" fill="#E3000F"/>
+    <rect x="22" y="22" width="96" height="96" rx="4" fill="#fff"/>
+    <path d="M70 34 C58 54 50 64 50 80 C50 96 58 106 70 106 C82 106 90 96 90 80 C90 64 82 54 70 34Z" fill="#E3000F"/>
+    <rect x="64" y="96" width="12" height="12" fill="#E3000F"/>
+  </g>
+  <g transform="translate(680 40)">
+    <rect x="4" y="24" width="132" height="72" rx="6" fill="#00A651"/>
+    <rect x="12" y="32" width="116" height="56" rx="4" fill="#fff"/>
+    <path d="M36 68 L58 50 V60 H82 V76 H58 V80 Z" fill="#00A651"/>
+    <text x="92" y="68" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#00A651">EXIT</text>
+  </g>
+
+  <g transform="translate(40 200)">
+    <polygon points="70,10 130,115 10,115" fill="#FFCC00" stroke="#222" stroke-width="3"/>
+    <path d="M48 78 L92 78 M70 56 L70 100" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(200 200)">
+    <circle cx="70" cy="62" r="58" fill="#fff" stroke="#E3000F" stroke-width="8"/>
+    <text x="70" y="74" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#E3000F">18+</text>
+  </g>
+  <g transform="translate(360 200)">
+    <circle cx="70" cy="62" r="58" fill="#0052CC"/>
+    <path d="M44 82 C44 58 56 44 70 44 C84 44 96 58 96 82 L96 96 L44 96 Z" fill="#fff"/>
+    <rect x="54" y="92" width="32" height="8" fill="#fff"/>
+  </g>
+  <g transform="translate(520 200)">
+    <rect x="10" y="10" width="120" height="120" rx="8" fill="#E3000F"/>
+    <rect x="22" y="22" width="96" height="96" rx="4" fill="#fff"/>
+    <rect x="46" y="46" width="48" height="48" rx="4" fill="none" stroke="#E3000F" stroke-width="6"/>
+  </g>
+  <g transform="translate(680 200)">
+    <rect x="4" y="24" width="132" height="72" rx="6" fill="#0052CC"/>
+    <rect x="12" y="32" width="116" height="56" rx="4" fill="#fff"/>
+    <text x="70" y="72" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#0052CC">APT</text>
+  </g>
+
+  <rect x="40" y="380" width="840" height="90" rx="10" fill="#f0f4f0"/>
+  <text x="460" y="435" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#232c35">GOST safety signs</text>
+</svg>
