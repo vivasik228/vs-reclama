@@ -1031,39 +1031,68 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 
 .application-form__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
-.application-form__full { grid-column: 1 / -1; }
+.application-form__full { grid-column: auto; }
 
-.form-field { display: block; }
+.form-field {
+  position: relative;
+  display: block;
+  padding: 16px 18px 18px 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.045);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.form-field::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--orange);
+}
+
+.form-field:hover,
+.form-field:focus-within {
+  border-color: rgba(255,109,0,0.55);
+  box-shadow: 0 10px 28px rgba(255,109,0,0.12);
+  transform: translateY(-1px);
+}
 
 .form-field > span {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--dark);
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-family: var(--font-hero);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.015em;
 }
 
 .form-field b { color: var(--orange); }
 
 .form-field input {
   width: 100%;
-  min-height: 50px;
-  padding: 12px 14px;
-  border: 2px solid var(--border-input);
-  border-radius: var(--radius-sm);
-  background: #fff;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
+  background: var(--bg);
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .form-field input::placeholder { color: #a5a5a5; }
-.form-field input:hover { border-color: #c8c8c8; }
+.form-field input:hover { border-color: #bdbdbd; background: #fff; }
 .form-field input:focus {
   border-color: var(--orange);
+  background: #fff;
   box-shadow: 0 0 0 4px var(--orange-soft);
 }
 
