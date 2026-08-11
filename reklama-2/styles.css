@@ -1328,18 +1328,26 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
     color: transparent;
     font-size: 0;
     background-color: var(--orange-soft);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 9l7 7 7-7' fill='none' stroke='%23ff6d00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 22px 22px;
+    display: grid;
+    place-items: center;
   }
 
   .mobile-nav-group__toggle::before,
   .mobile-nav-group__toggle::after {
     content: none;
   }
-  .mobile-nav-group.is-open > .mobile-nav-group__toggle {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 15l7-7 7 7' fill='none' stroke='%23ff6d00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  .mobile-nav-group__arrow {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-right: 4px solid var(--orange);
+    border-bottom: 4px solid var(--orange);
+    border-radius: 2px;
+    transform: translateY(-4px) rotate(45deg);
+    transition: transform .2s ease;
+  }
+  .mobile-nav-group.is-open > .mobile-nav-group__toggle .mobile-nav-group__arrow {
+    transform: translateY(4px) rotate(225deg);
   }
 
   .mobile-nav-group__children {
