@@ -945,6 +945,150 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 .sidebar-card a:hover { color: var(--orange); opacity: 1; }
 .sidebar-card .btn { width: 100%; margin-top: 16px; }
 
+/* Application form */
+.page-hero__lead {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 0.96rem;
+}
+
+.application-section {
+  padding: 48px 0 80px;
+  background: #fff;
+}
+
+.application-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.35fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.application-info {
+  padding: 36px;
+  border-top: 4px solid var(--orange);
+  border-radius: var(--radius);
+  background: var(--dark);
+  color: #fff;
+}
+
+.application-info__number {
+  display: inline-grid;
+  width: 42px;
+  height: 36px;
+  margin-bottom: 24px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--orange);
+  font-family: var(--font-hero);
+  font-weight: 800;
+}
+
+.application-info h2 {
+  margin: 0 0 14px;
+  font-family: var(--font-hero);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  line-height: 1.25;
+}
+
+.application-info > p {
+  margin: 0;
+  color: rgba(255,255,255,0.68);
+}
+
+.application-info__contact {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.application-info__contact span {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.78rem;
+}
+
+.application-info__contact a {
+  display: block;
+  width: fit-content;
+  color: #fff;
+  font-family: var(--font-hero);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.application-info__contact a:hover { color: var(--orange); opacity: 1; }
+
+.application-card {
+  padding: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.application-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.application-form__full { grid-column: 1 / -1; }
+
+.form-field { display: block; }
+
+.form-field > span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.form-field b { color: var(--orange); }
+
+.form-field input {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 2px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input::placeholder { color: #a5a5a5; }
+.form-field input:hover { border-color: #c8c8c8; }
+.form-field input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px var(--orange-soft);
+}
+
+.application-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 24px 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.application-consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--orange);
+  flex: 0 0 auto;
+}
+
+.application-form__submit { width: 100%; border: 0; cursor: pointer; }
+.application-form__note { margin: 12px 0 0; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+.application-form__note a { font-weight: 600; }
+
 /* Contacts */
 .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 48px 0 80px; background: #fff; }
 
@@ -1044,6 +1188,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   .header-phone-block { display: none; }
   .btn--order { display: none; }
   .burger { display: flex; margin-left: auto; }
+  .application-layout { grid-template-columns: 1fr; }
   .contacts-grid { grid-template-columns: 1fr; }
   .trust__grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1057,6 +1202,10 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   .advantages-bar__grid, .services-grid, .why-grid, .workflow-grid, .metrics-strip__grid, .categories__grid { grid-template-columns: 1fr; }
   .content-card { padding: 24px; }
   .section { padding: 50px 0; }
+  .application-section { padding: 32px 0 56px; }
+  .application-info, .application-card { padding: 24px; }
+  .application-form__grid { grid-template-columns: 1fr; }
+  .application-form__full { grid-column: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
