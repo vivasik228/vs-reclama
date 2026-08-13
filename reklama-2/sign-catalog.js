@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const page = index + 1;
     if (item.section) {
       const section = document.createElement('div');
-      section.className = 'poster-section reveal';
+      section.className = 'poster-section';
       section.innerHTML = `<div class="poster-section__mark"></div><div><span>Раздел каталога</span><h3>${item.section}</h3><p>${item.description}</p></div><div class="poster-section__range">Страницы ${page}${pages.slice(index + 1).findIndex(next => next.section) >= 0 ? `-${page + pages.slice(index + 1).findIndex(next => next.section)}` : `-${pages.length}`}</div>`;
       grid.append(section);
     }
     const card = document.createElement('article');
-    card.className = 'poster-card reveal';
+    card.className = 'poster-card';
     card.innerHTML = `<button class="poster-card__preview" type="button" aria-label="Открыть страницу ${page}"><img src="assets/znaki/catalog-${String(page).padStart(2, '0')}.webp" alt="Каталог знаков безопасности, страница ${page}" loading="lazy"></button><div class="poster-card__number"><div class="poster-card__page"><span>Страница</span><strong>${page}</strong></div><div class="poster-card__codes"><span>Коды знаков</span><b>${item.codes}</b></div></div>`;
     card.querySelector('button').addEventListener('click', () => openViewer(index));
     grid.append(card);
