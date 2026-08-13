@@ -35,7 +35,7 @@
       </header>`;
     }
     return `${sectionHeader}<article class="poster-card" data-page="${page}">
-      <button class="poster-card__preview" type="button" aria-label="Открыть ${pageLabel(page)} крупно"><img src="assets/plakaty/catalog-${String(assetPage).padStart(2,'0')}.webp" alt="${pageLabel(page)}" loading="lazy" decoding="async"></button>
+      <button class="poster-card__preview" type="button" aria-label="Открыть ${pageLabel(page)} крупно"><img src="assets/plakaty/catalog-${String(assetPage).padStart(2,'0')}.webp?v=cropped-20260813" alt="${pageLabel(page)}" loading="lazy" decoding="async"></button>
     </article>`;
   }).join('');
   grid.innerHTML = indexCard + pagesHtml;
@@ -48,7 +48,7 @@
   const viewerImg = viewer.querySelector('img');
   const viewerTitle = viewer.querySelector('[data-viewer-title]');
   let current = 0;
-  const show = index => { current = index < 1 ? cards.length : index > cards.length ? 1 : index; const assetPage = current + 1; viewerImg.src = `assets/plakaty/catalog-${String(assetPage).padStart(2,'0')}.webp`; viewerImg.alt = pageLabel(current); viewerTitle.textContent = pageLabel(current); };
+  const show = index => { current = index < 1 ? cards.length : index > cards.length ? 1 : index; const assetPage = current + 1; viewerImg.src = `assets/plakaty/catalog-${String(assetPage).padStart(2,'0')}.webp?v=cropped-20260813`; viewerImg.alt = pageLabel(current); viewerTitle.textContent = pageLabel(current); };
   cards.forEach((card, index) => card.querySelector('.poster-card__preview').addEventListener('click', () => { show(index + 1); viewer.classList.add('is-open'); viewer.setAttribute('aria-hidden','false'); document.body.classList.add('poster-viewer-open'); viewer.querySelector('[data-viewer-close]').focus(); }));
   const close = () => { viewer.classList.remove('is-open'); viewer.setAttribute('aria-hidden','true'); document.body.classList.remove('poster-viewer-open'); viewerImg.removeAttribute('src'); };
   viewer.querySelector('[data-viewer-close]').addEventListener('click', close);
