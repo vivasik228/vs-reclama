@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=real-arrows-20260811" />
-  <link rel="stylesheet" href="catalog.css?v=modern-index-20260813" />
+  <link rel="stylesheet" href="catalog.css?v=no-search-20260813" />
 </head>
 <body data-page="ohrana-truda">
 <header class="site-header">
@@ -155,12 +155,10 @@
           <div class="poster-catalog__count">65 страниц с плакатами</div>
         </div>
         <div class="poster-tools reveal">
-          <label><span class="sr-only">Поиск по коду или странице</span><input type="search" data-poster-search placeholder="Найти код, например 22.4" inputmode="decimal"></label>
           <div class="poster-tools__add"><label><span class="sr-only">Код выбранного плаката</span><input type="text" data-code-input placeholder="Код плаката"></label><button type="button" class="btn btn--primary" data-code-add>Добавить</button></div>
           <a class="poster-selection" data-poster-selection aria-disabled="true" href="#">Сначала добавьте код плаката</a>
         </div>
         <div class="poster-grid" data-poster-grid aria-live="polite"></div>
-        <div class="poster-empty" data-poster-empty><strong>Такой код не найден.</strong><br>Проверьте написание или откройте содержание каталога.</div>
       </div>
     </section>
     <div class="poster-viewer" data-poster-viewer aria-hidden="true">
@@ -180,6 +178,6 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script src="catalog.js?v=modern-index-20260813"></script>
+  <script src="catalog.js?v=no-search-20260813"></script>
 </body>
 </html>

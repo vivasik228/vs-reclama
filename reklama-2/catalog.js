@@ -30,20 +30,10 @@
     </article>`;
   }).join('');
   const cards = [...grid.querySelectorAll('.poster-card')];
-  const catalogIndex = grid.querySelector('.poster-index');
   grid.querySelectorAll('[data-go-page]').forEach(button => button.addEventListener('click', () => {
     const target = grid.querySelector(`[data-page="${button.dataset.goPage}"]`);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
-  const search = document.querySelector('[data-poster-search]');
-  const empty = document.querySelector('[data-poster-empty]');
-  search.addEventListener('input', () => {
-    const q = search.value.trim().toLowerCase().replace(',', '.');
-    let shown = 0;
-    catalogIndex.hidden = !!q;
-    cards.forEach(card => { const ok = !q || card.dataset.search.split(/\s+/).some(v => v === q) || card.dataset.search.includes(q); card.hidden = !ok; if (ok) shown++; });
-    empty.classList.toggle('is-visible', shown === 0);
-  });
   const chosen = new Set();
   const codeInput = document.querySelector('[data-code-input]');
   const addCode = document.querySelector('[data-code-add]');
