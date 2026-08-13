@@ -2,34 +2,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('[data-sign-grid]');
   if (!grid) return;
 
-  const pages = [
-    { section: 'Запрещающие знаки', description: 'Красные знаки запрета по ГОСТ.', codes: 'P01 - P07' },
-    { codes: 'P08 - P14' }, { codes: 'P15 - P21' },
-    { section: 'Знаки пожарной безопасности', description: 'Средства пожаротушения и направления к ним.', codes: 'P22 - P23 · F01 - F04' },
-    { codes: 'F04-01 - F12' },
-    { section: 'Предупреждающие знаки', description: 'Жёлтые знаки опасности и предупреждения.', codes: 'W01 - W08' },
-    { codes: 'W09 - W16' }, { codes: 'W17 - W24' }, { codes: 'W25 - W30 · M01 - M02' },
-    { section: 'Предписывающие и эвакуационные знаки', description: 'Обязательные действия и направления эвакуации.', codes: 'M03 - M15 · E01' },
-    { codes: 'M16 - M20' }, { codes: 'E02 - E13' }, { codes: 'E14 - E23' },
-    { section: 'Медицинские, указательные и электротехнические знаки', description: 'Первая помощь, сервисные и электротехнические обозначения.', codes: 'E024 · E025 · D01 - D03 · W08 · ЗП-30' },
-    { codes: 'E01 - E04 · E11 - E13 · EC01 - EC04' },
-    { section: 'Готовые знаки и плакаты', description: 'Текстовые таблички и плакаты для рабочих зон.', codes: 'ЗП-01 - ЗП-17' },
-    { codes: 'ЗП-18 - ЗП-29 · типоразмеры' }
+  const sections = [
+    { title: 'Запрещающие знаки', description: 'Красные знаки запрета по ГОСТ.', items: [
+      ['catalog-01.webp', '1', 'P01 - P07'], ['catalog-02.webp', '2', 'P08 - P14'], ['catalog-03.webp', '3', 'P15 - P21'], ['catalog-04-prohibition.webp', '4 · верхняя часть', 'P34 · P20'] ] },
+    { title: 'Знаки пожарной безопасности', description: 'Средства пожаротушения и направления к ним.', items: [
+      ['catalog-04-fire.webp', '4 · нижняя часть', 'F02 - F05 · F01-01'], ['catalog-05.webp', '5', 'F04-01 - F12'] ] },
+    { title: 'Предупреждающие знаки', description: 'Жёлтые знаки опасности и предупреждения.', items: [
+      ['catalog-06.webp', '6', 'W01 - W08'], ['catalog-07.webp', '7', 'W09 - W16'], ['catalog-08.webp', '8', 'W17 - W24'], ['catalog-09-warning.webp', '9 · верхняя часть', 'W26 - W30'] ] },
+    { title: 'Предписывающие знаки', description: 'Синие знаки обязательных действий.', items: [
+      ['catalog-09-mandatory.webp', '9 · нижняя часть', 'M01 - M02'], ['catalog-10-mandatory.webp', '10 · верхняя часть', 'M10 - M15'], ['catalog-11.webp', '11', 'M03 - M09'] ] },
+    { title: 'Эвакуационные знаки', description: 'Направления движения, выходы и безопасные пути.', items: [
+      ['catalog-10-evacuation.webp', '10 · нижняя часть', 'E01-01'], ['catalog-12.webp', '12', 'E02 - E13'], ['catalog-13.webp', '13', 'E14 - E22'], ['catalog-15-evacuation.webp', '15 · верхняя часть', 'E10 - E12 · E23'] ] },
+    { title: 'Знаки медицинского и санитарного назначения', description: 'Первая помощь и медицинские пункты.', items: [
+      ['catalog-15-medical.webp', '15 · нижняя часть', 'EC01 - EC04'], ['catalog-14-medical.webp', '14 · верхняя часть', 'EC05 - EC06'] ] },
+    { title: 'Указательные знаки', description: 'Информационные обозначения бытовых и общественных зон.', items: [
+      ['catalog-14-information.webp', '14 · средняя часть', 'D01 - D03'] ] },
+    { title: 'Электротехнические знаки', description: 'Предупреждение о напряжении и обозначение заземления.', items: [
+      ['catalog-14-electrical.webp', '14 · нижняя часть', 'W08 · ЗП-30 · 42/220/380 В'] ] },
+    { title: 'Готовые знаки и плакаты', description: 'Текстовые таблички и плакаты для рабочих зон.', items: [
+      ['catalog-16-prohibition.webp', '16 · верхняя часть', 'ЗП-05 · ЗП-06 · ЗП-08 · ЗП-11'], ['catalog-16-warning.webp', '16 · нижняя часть', 'ЗП-24 · ЗП-22 · ЗП-23 · ЗП-07 · ЗП-09 - ЗП-16'], ['catalog-17-signs.webp', '17 · верхняя часть', 'ЗП-17 - ЗП-29'], ['catalog-17-sizes.webp', '17 · нижняя часть', 'Типоразмеры 1 - 3'] ] }
   ];
 
-  pages.forEach((item, index) => {
-    const page = index + 1;
-    if (item.section) {
-      const section = document.createElement('div');
-      section.className = 'poster-section';
-      section.innerHTML = `<div class="poster-section__mark"></div><div><span>Раздел каталога</span><h3>${item.section}</h3><p>${item.description}</p></div><div class="poster-section__range">Страницы ${page}${pages.slice(index + 1).findIndex(next => next.section) >= 0 ? `-${page + pages.slice(index + 1).findIndex(next => next.section)}` : `-${pages.length}`}</div>`;
-      grid.append(section);
-    }
-    const card = document.createElement('article');
-    card.className = 'poster-card';
-    card.innerHTML = `<button class="poster-card__preview" type="button" aria-label="Открыть страницу ${page}"><img src="assets/znaki/catalog-${String(page).padStart(2, '0')}.webp" alt="Каталог знаков безопасности, страница ${page}" loading="lazy"></button><div class="poster-card__number"><div class="poster-card__page"><span>Страница</span><strong>${page}</strong></div><div class="poster-card__codes"><span>Коды знаков</span><b>${item.codes}</b></div></div>`;
-    card.querySelector('button').addEventListener('click', () => openViewer(index));
-    grid.append(card);
+  const pages = sections.flatMap(section => section.items.map(item => ({ image: item[0], page: item[1], codes: item[2], section: section.title })));
+  let globalIndex = 0;
+  sections.forEach(sectionData => {
+    const start = globalIndex + 1;
+    const end = globalIndex + sectionData.items.length;
+    const section = document.createElement('div');
+    section.className = 'poster-section';
+    section.innerHTML = `<div class="poster-section__mark"></div><div><span>Раздел каталога</span><h3>${sectionData.title}</h3><p>${sectionData.description}</p></div><div class="poster-section__range">Листы ${start}-${end}</div>`;
+    grid.append(section);
+
+    sectionData.items.forEach(item => {
+      const index = globalIndex;
+      const card = document.createElement('article');
+      card.className = 'poster-card';
+      card.innerHTML = `<button class="poster-card__preview" type="button" aria-label="Открыть страницу ${item[1]}"><img src="assets/znaki/${item[0]}" alt="${sectionData.title}, страница ${item[1]}" loading="lazy"></button><div class="poster-card__number"><div class="poster-card__page"><span>Страница</span><strong>${item[1]}</strong></div><div class="poster-card__codes"><span>Коды знаков</span><b>${item[2]}</b></div></div>`;
+      card.querySelector('button').addEventListener('click', () => openViewer(index));
+      grid.append(card);
+      globalIndex += 1;
+    });
   });
 
   const viewer = document.querySelector('[data-sign-viewer]');
@@ -38,9 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let current = 0;
   function show(index) {
     current = (index + pages.length) % pages.length;
-    viewerImage.src = `assets/znaki/catalog-${String(current + 1).padStart(2, '0')}.webp`;
-    viewerImage.alt = `Каталог знаков безопасности, страница ${current + 1}`;
-    viewerTitle.textContent = `Страница ${current + 1} из ${pages.length} · ${pages[current].codes}`;
+    const item = pages[current];
+    viewerImage.src = `assets/znaki/${item.image}`;
+    viewerImage.alt = `${item.section}, страница ${item.page}`;
+    viewerTitle.textContent = `Страница ${item.page} · ${item.codes}`;
   }
   function openViewer(index) { show(index); viewer.classList.add('is-open'); viewer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
   function closeViewer() { viewer.classList.remove('is-open'); viewer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
