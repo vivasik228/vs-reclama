@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=real-arrows-20260811" />
+  <link rel="stylesheet" href="catalog.css?v=poster-catalog-20260813" />
 </head>
 <body data-page="ohrana-truda">
 <header class="site-header">
@@ -147,21 +148,27 @@
       <p class="breadcrumb"><a href="index.html">Главная</a> / <a href="ohrana-truda.html">Охрана труда и ТБ</a> / Плакаты по охране труда — перечень</p>
       <h1>Плакаты по охране труда — перечень</h1>
     </div></div>
-    <div class="container content-wrap">
-      <div class="content-card reveal">
-                <p>Плакаты по охране труда напоминают сотрудникам о правилах безопасности, СИЗ и порядке действий на рабочем месте.</p>
-        <p>В перечне — типовые темы для производства, склада и офиса. Можем допечатать нужный тираж или изготовить плакат по вашему макету.</p>
-        <p>Заказ оформляется через <a href="zayavka-iz-perechnya.html">заявку из перечня</a> или по электронной почте.</p>
-        
-        <p class="order-note">Напишите на <a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a> или позвоните: <a href="tel:+73517710511">(351) 771-05-11</a>, <a href="tel:+73517710518">(351) 771-05-18</a> — обсудим задачу и подготовим расчёт.</p>
+    <section class="poster-catalog">
+      <div class="container">
+        <div class="poster-catalog__intro reveal">
+          <div><h2>Каталог плакатов</h2><p>Откройте любую страницу крупно, рассмотрите параметры и запишите код нужного плаката. Поиск сразу покажет страницу, на которой расположен указанный код.</p></div>
+          <div class="poster-catalog__count">67 страниц · более 200 плакатов</div>
+        </div>
+        <div class="poster-tools reveal">
+          <label><span class="sr-only">Поиск по коду или странице</span><input type="search" data-poster-search placeholder="Найти код, например 22.4" inputmode="decimal"></label>
+          <div class="poster-tools__add"><label><span class="sr-only">Код выбранного плаката</span><input type="text" data-code-input placeholder="Код плаката"></label><button type="button" class="btn btn--primary" data-code-add>Добавить</button></div>
+          <a class="poster-selection" data-poster-selection aria-disabled="true" href="#">Сначала добавьте код плаката</a>
+        </div>
+        <div class="poster-grid" data-poster-grid aria-live="polite"></div>
+        <div class="poster-empty" data-poster-empty><strong>Такой код не найден.</strong><br>Проверьте написание или откройте содержание каталога.</div>
       </div>
-      <aside class="sidebar-card reveal reveal--d1">
-        <h3>Контакты</h3>
-        <p>454007, г. Челябинск,<br />пр-т Ленина, 2С</p>
-        <p><a href="tel:+73517710511">(351) 771-05-11</a><br /><a href="tel:+73517710518">(351) 771-05-18</a></p>
-        <p><a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a></p>
-        <a href="contacts.html" class="btn btn--primary">Схема проезда</a>
-      </aside>
+    </section>
+    <div class="poster-viewer" data-poster-viewer aria-hidden="true">
+      <div class="poster-viewer__dialog" role="dialog" aria-modal="true" aria-label="Просмотр каталога">
+        <div class="poster-viewer__head"><span class="poster-viewer__title" data-viewer-title></span><button class="poster-viewer__close" type="button" data-viewer-close aria-label="Закрыть">×</button></div>
+        <div class="poster-viewer__canvas"><img alt=""></div>
+        <div class="poster-viewer__foot"><button type="button" data-viewer-prev>← Назад</button><span class="poster-viewer__codes" data-viewer-codes></span><button class="poster-viewer__next" type="button" data-viewer-next>Вперёд →</button></div>
+      </div>
     </div>
   </main>
   <footer class="site-footer">
@@ -173,5 +180,6 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script src="catalog.js?v=poster-catalog-20260813"></script>
 </body>
 </html>
