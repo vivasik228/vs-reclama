@@ -25,8 +25,8 @@
   --red-dark: #e55f00;
   --dark: #1e1e1e;
   --dark-2: #2a2a2a;
-  --header-bg: #1746a2;
-  --header-bg-2: #1746a2;
+  --header-bg: #ffffff;
+  --header-bg-2: #ffffff;
   --footer-bg: #1e1e1e;
   --bg: #f5f5f5;
   --bg-card: #ffffff;
@@ -92,9 +92,9 @@ main { flex: 1; }
 
 .site-header.is-scrolled { box-shadow: var(--shadow-sm); }
 
-.site-header, .site-header .header-top, .site-header .header-nav { color: #fff; }
+.site-header, .site-header .header-top, .site-header .header-nav, .site-header .mobile-nav { color: var(--text); }
 
-.header-top { background: #1746a2; border-bottom: 1px solid rgba(255,255,255,.18); }
+.header-top { background: #fff; border-bottom: 1px solid var(--border); }
 .header-top .container, .header-nav .container, .site-header .container { width: min(var(--max-header), calc(100% - 32px)); }
 
 .header-top__inner {
@@ -112,7 +112,7 @@ main { flex: 1; }
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  color: rgba(255,255,255,.78);
+  color: var(--text-muted);
   font-size: 0.82rem;
   line-height: 1.35;
 }
@@ -133,11 +133,11 @@ main { flex: 1; }
   font-family: var(--font-hero);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--dark);
 }
 
 .header-phone::before { content: none; }
-.header-phone--2 { font-size: 0.92rem; font-weight: 600; color: rgba(255,255,255,.75); }
+.header-phone--2 { font-size: 0.92rem; font-weight: 600; color: var(--text-muted); }
 
 .header-callback {
   display: inline-block;
@@ -150,7 +150,7 @@ main { flex: 1; }
 .header-callback:hover { opacity: 1; }
 .header-contacts { display: none; }
 
-.header-nav { background: #1746a2; border-bottom: 2px solid var(--orange); }
+.header-nav { background: #fff; border-bottom: 2px solid var(--orange); }
 
 .nav {
   display: flex;
@@ -167,7 +167,7 @@ main { flex: 1; }
   padding: 0 18px;
   font-weight: 600;
   font-size: 0.85rem;
-  color: rgba(255,255,255,.92);
+  color: var(--text);
   border-bottom: 3px solid transparent;
   white-space: nowrap;
   transform: none;
@@ -257,13 +257,13 @@ main { flex: 1; }
   flex-direction: column;
   gap: 5px;
   padding: 10px;
-  border: 1px solid rgba(255,255,255,.34);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(255,255,255,.12);
+  background: #fff;
   cursor: pointer;
 }
 
-.burger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.burger span { width: 22px; height: 2px; background: var(--dark); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
 .burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .burger.is-open span:nth-child(2) { opacity: 0; }
 .burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
