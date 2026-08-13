@@ -18,16 +18,30 @@
     <div class="poster-index__grid">${categories.map(([title, text, page]) => `<button type="button" class="poster-index__item" data-go-page="${page}"><span><strong>${title}</strong><small>${text}</small></span><span class="poster-index__arrow">→</span></button>`).join('')}</div>
   </article>`;
   const pageLabel = n => `Страница ${n}`;
-  grid.innerHTML = indexCard + Array.from({ length: 65 }, (_, index) => {
+  const sectionStarts = new Map(categories.map((category, index) => [category[2], { category, index }]));
+  const pagesHtml = Array.from({ length: 65 }, (_, index) => {
     const page = index + 1;
     const assetPage = page + 1;
-    return `<article class="poster-card" data-page="${page}">
+    const section = sectionStarts.get(page);
+    let sectionHeader = '';
+    if (section) {
+      const [title, text] = section.category;
+      const nextStart = categories[section.index + 1]?.[2] || 66;
+      const endPage = nextStart - 1;
+      sectionHeader = `<header class="poster-section" id="category-${page}">
+        <div class="poster-section__mark" aria-hidden="true"></div>
+        <div><span class="poster-section__eyebrow">Раздел каталога</span><h3>${title}</h3><p>${text}</p></div>
+        <span class="poster-section__range">Страницы ${page}–${endPage}</span>
+      </header>`;
+    }
+    return `${sectionHeader}<article class="poster-card" data-page="${page}">
       <button class="poster-card__preview" type="button" aria-label="Открыть ${pageLabel(page)} крупно"><img src="assets/plakaty/catalog-${String(assetPage).padStart(2,'0')}.webp" alt="${pageLabel(page)}" loading="lazy" decoding="async"></button>
     </article>`;
   }).join('');
+  grid.innerHTML = indexCard + pagesHtml;
   const cards = [...grid.querySelectorAll('.poster-card')];
   grid.querySelectorAll('[data-go-page]').forEach(button => button.addEventListener('click', () => {
-    const target = grid.querySelector(`[data-page="${button.dataset.goPage}"]`);
+    const target = grid.querySelector(`#category-${button.dataset.goPage}`);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
   const viewer = document.querySelector('[data-poster-viewer]');
