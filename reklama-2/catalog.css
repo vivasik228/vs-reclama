@@ -29,6 +29,8 @@
 .poster-card[hidden] { display: none; }
 .poster-card__preview { display: block; width: 100%; padding: 0; border: 0; background: #eceeef; cursor: zoom-in; }
 .poster-card__preview img { display: block; width: 100%; height: auto; aspect-ratio: 595 / 842; object-fit: cover; }
+.poster-card__number { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 15px 13px 18px; border-top: 1px solid #eee7e2; background: linear-gradient(100deg,#fff 0%,#fff8f3 100%); color: #575b60; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+.poster-card__number strong { display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px; border-radius: 11px; background: #ff6d00; color: #fff; font-size: 15px; box-shadow: 0 6px 14px rgba(255,109,0,.23); }
 .poster-viewer { position: fixed; inset: 0; z-index: 1000; display: none; place-items: center; padding: 20px; background: rgba(18,20,22,.88); }
 .poster-viewer.is-open { display: grid; }
 .poster-viewer__dialog { position: relative; width: min(960px,100%); height: min(92vh,1100px); display: grid; grid-template-rows: auto 1fr auto; border-radius: 20px; overflow: hidden; background: #fff; }

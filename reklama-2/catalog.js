@@ -36,6 +36,7 @@
     }
     return `${sectionHeader}<article class="poster-card" data-page="${page}">
       <button class="poster-card__preview" type="button" aria-label="Открыть ${pageLabel(page)} крупно"><img src="assets/plakaty/catalog-${String(assetPage).padStart(2,'0')}.webp?v=cropped-20260813" alt="${pageLabel(page)}" loading="lazy" decoding="async"></button>
+      <div class="poster-card__number"><span>Страница</span><strong>${page}</strong></div>
     </article>`;
   }).join('');
   grid.innerHTML = indexCard + pagesHtml;
