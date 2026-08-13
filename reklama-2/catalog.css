@@ -29,6 +29,8 @@
 .poster-card[hidden] { display: none; }
 .poster-card__preview { display: block; width: 100%; padding: 0; border: 0; background: #eceeef; cursor: zoom-in; }
 .poster-card__preview img { display: block; width: 100%; height: auto; aspect-ratio: 595 / 842; object-fit: cover; }
+[data-sign-grid] .poster-card__preview { display: grid; place-items: center; background: #fff; }
+[data-sign-grid] .poster-card__preview img { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
 .poster-card__number { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px; min-height: 76px; padding: 12px 15px; border-top: 1px solid #eee7e2; background: linear-gradient(100deg,#fff 0%,#fff8f3 100%); color: #575b60; font-size: 12px; letter-spacing: .01em; }
 .poster-card__page { display: flex; align-items: center; gap: 9px; font-weight: 700; }
 .poster-card__page strong { display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px; border-radius: 11px; background: #ff6d00; color: #fff; font-size: 15px; box-shadow: 0 6px 14px rgba(255,109,0,.23); }
@@ -44,6 +46,8 @@
 .poster-viewer__close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff1e6; font-size: 30px; line-height: 1; cursor: pointer; }
 .poster-viewer__canvas { min-height: 0; overflow: auto; background: #dfe1e4; text-align: center; }
 .poster-viewer__canvas img { display: block; width: auto; max-width: 100%; min-width: min(700px,100%); height: auto; margin: 0 auto; }
+[data-sign-viewer] .poster-viewer__canvas { display: grid; place-items: start center; }
+[data-sign-viewer] .poster-viewer__canvas img { min-width: 0; max-width: 100%; max-height: none; object-fit: contain; }
 .poster-viewer__foot { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 12px; padding: 12px 16px; border-top: 1px solid #e4e5e7; }
 .poster-viewer__foot button { min-height: 44px; border: 0; border-radius: 12px; background: #fff1e6; color: #d95800; font: inherit; font-weight: 700; cursor: pointer; }
 .poster-viewer__next { justify-self: end; }
