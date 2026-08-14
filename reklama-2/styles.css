@@ -73,7 +73,7 @@ body[data-page="home"] {
   background-image: url("assets/city-gray-bg.png");
   background-repeat: repeat-y;
   background-position: center top;
-  background-size: min(1624px, 100vw) auto;
+  background-size: min(1000px, 100vw) auto;
 }
 
 body[data-page="home"] .hero-yarko {
