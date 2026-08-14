@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Плакаты по охране труда — ООО «ВС-РЕКЛАМА», Челябинск</title>
+  <title>Заявка на плакаты по охране труда — ООО «ВС-РЕКЛАМА», Челябинск</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=poster-request-link-20260814" />
-  <link rel="stylesheet" href="catalog.css?v=poster-numbers-20260813" />
+  <link rel="stylesheet" href="styles.css?v=poster-request-page-20260814" />
 </head>
 <body data-page="ohrana-truda">
 <header class="site-header">
@@ -145,26 +144,67 @@
 </header>
     <main>
     <div class="page-hero"><div class="container reveal">
-      <p class="breadcrumb"><a href="index.html">Главная</a> / <a href="ohrana-truda.html">Охрана труда и ТБ</a> / Плакаты по охране труда</p>
-      <h1>Плакаты по охране труда</h1>
+      <p class="breadcrumb"><a href="index.html">Главная</a> / <a href="ohrana-truda.html">Охрана труда и ТБ</a> / <a href="plakaty-ohrana-perechen.html">Плакаты по охране труда</a> / Заявка</p>
+      <h1>Заявка на плакаты по охране труда</h1>
     </div></div>
-    <section class="poster-catalog">
-      <div class="container">
-        <div class="poster-catalog__intro reveal">
-          <div><h2>Каталог плакатов</h2><p>Выберите тему в навигаторе или откройте любую страницу крупно, чтобы рассмотреть плакаты и их параметры.</p></div>
-          <div class="poster-catalog__count">65 страниц с плакатами</div>
+    <div class="container request-page">
+      <div class="request-page__grid request-page__grid--with-aside">
+      <section class="catalog-request reveal" aria-labelledby="catalog-request-title">
+        <div class="catalog-request__head">
+          <span>Заявка заполняется заказчиком</span>
+          <h2 id="catalog-request-title">Заявка на получение плакатов по охране труда</h2>
+          <p>Заполните контактные данные и укажите выбранные номера плакатов из каталога.</p>
         </div>
-        <div class="poster-grid" data-poster-grid aria-live="polite"></div>
-      </div>
-    </section>
-    <div class="poster-viewer" data-poster-viewer aria-hidden="true">
-      <div class="poster-viewer__dialog" role="dialog" aria-modal="true" aria-label="Просмотр каталога">
-        <div class="poster-viewer__head"><span class="poster-viewer__title" data-viewer-title></span><button class="poster-viewer__close" type="button" data-viewer-close aria-label="Закрыть">×</button></div>
-        <div class="poster-viewer__canvas"><img alt=""></div>
-        <div class="poster-viewer__foot"><button type="button" data-viewer-prev>← Назад</button><button class="poster-viewer__next" type="button" data-viewer-next>Вперёд →</button></div>
+
+        <form class="catalog-request__form" data-catalog-request data-request-kind="poster">
+          <div class="catalog-request__guide" aria-label="Как оформить заявку">
+            <div><strong>01</strong><span>Выберите номер нужного плаката в каталоге</span></div>
+            <div><strong>02</strong><span>Укажите размер, количество и материал</span></div>
+            <div><strong>03</strong><span>Заполните контакты для обратной связи</span></div>
+          </div>
+          <div class="catalog-request__contacts">
+            <label><span>Контактное лицо</span><input name="contact" type="text" autocomplete="name" required /></label>
+            <label><span>ФИО</span><input name="full_name" type="text" autocomplete="name" required /></label>
+            <label><span>Должность</span><input name="position" type="text" /></label>
+            <label><span>Название организации</span><input name="organization" type="text" autocomplete="organization" required /></label>
+            <label><span>ИНН/КПП</span><input name="inn_kpp" type="text" inputmode="numeric" /></label>
+            <label class="catalog-request__short"><span>Код города</span><input name="city_code" type="text" inputmode="tel" /></label>
+            <label><span>Телефон/факс</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+            <label><span>E-mail</span><input name="email" type="email" autocomplete="email" required /></label>
+            <label class="catalog-request__wide"><span>Почтовый адрес</span><input name="postal_address" type="text" autocomplete="street-address" /></label>
+            <label class="catalog-request__wide"><span>Юридический адрес</span><input name="legal_address" type="text" /></label>
+          </div>
+
+          <div class="catalog-request__positions">
+            <div class="catalog-request__positions-head">
+              <div><span>Выбранные плакаты</span><h3>Позиции заказа</h3></div>
+              <button class="catalog-request__add" type="button" data-add-poster>+ Добавить строку</button>
+            </div>
+            <div class="catalog-request__rows" data-poster-rows></div>
+          </div>
+
+          <button class="btn btn--primary catalog-request__submit" type="submit">Отправить заявку</button>
+          <p class="catalog-request__note">Заявка будет подготовлена для отправки на почту <a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a>.<br />Тел.: <a href="tel:+73517710518">8 (351) 771-05-18</a></p>
+        </form>
+      </section>
+      <aside class="sign-request-info reveal reveal--d1">
+        <span class="sign-request-info__eyebrow">Перед отправкой</span>
+        <h2>Проверьте заявку</h2>
+        <ul>
+          <li>Номер плаката указан точно как в каталоге</li>
+          <li>Выбраны нужные размер и материал</li>
+          <li>Указано количество каждого плаката</li>
+          <li>Телефон и e-mail заполнены без ошибок</li>
+        </ul>
+        <div class="sign-request-info__contacts">
+          <span>Нужна помощь?</span>
+          <a href="tel:+73517710511">(351) 771-05-11</a>
+          <a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a>
+        </div>
+        <a class="btn btn--primary sign-request-info__back" href="plakaty-ohrana-perechen.html">Вернуться к каталогу</a>
+      </aside>
       </div>
     </div>
-    <a class="sign-request-teaser" href="zayavka-plakaty.html">Оставить заявку на плакаты здесь</a>
   </main>
   <footer class="site-footer">
     <div class="container site-footer__inner">
@@ -175,6 +215,7 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script src="catalog.js?v=poster-numbers-20260813"></script>
+  <script src="request-form.js?v=20260814-sign-request"></script>
 </body>
 </html>
+
