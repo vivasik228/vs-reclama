@@ -963,35 +963,23 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 
 .sign-request-teaser {
   position: fixed;
-  left: 24px;
+  right: 24px;
   bottom: 24px;
   z-index: 90;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  min-height: 54px;
-  padding: 0 10px 0 22px;
+  min-height: 44px;
+  padding: 0 18px;
   border: 1px solid rgba(255, 109, 0, 0.28);
   border-radius: 999px;
   background: #fff;
   color: var(--dark);
   box-shadow: 0 12px 32px rgba(21, 21, 21, 0.14);
   font-family: var(--font-hero);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 800;
   cursor: pointer;
   transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
-}
-
-.sign-request-teaser__arrow {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--orange);
-  color: #fff;
-  font-size: 1rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1324,15 +1312,14 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 @media (max-width: 640px) {
   body { padding-bottom: 84px; }
   .sign-request-teaser {
-    left: 12px;
-    right: auto;
+    left: auto;
+    right: 12px;
     bottom: 88px;
-    min-height: 48px;
+    min-height: 42px;
     max-width: calc(100% - 24px);
-    padding-left: 18px;
-    font-size: 0.76rem;
+    padding: 0 16px;
+    font-size: 0.72rem;
   }
-  .sign-request-teaser__arrow { width: 32px; height: 32px; }
   .container { width: calc(100% - 24px); }
 
   .header-top__inner { min-height: 66px; }
