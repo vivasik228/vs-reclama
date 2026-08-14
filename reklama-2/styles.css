@@ -72,8 +72,8 @@ body[data-page="home"] {
   background-color: #f3f3f3;
   background-image: url("assets/city-gray-bg.png?v=transparent-1");
   background-repeat: repeat-y;
-  background-position: center top;
-  background-size: min(1000px, 100vw) auto;
+  background-position: left top;
+  background-size: min(1120px, 110vw) auto;
 }
 
 body[data-page="home"] .hero-yarko {
