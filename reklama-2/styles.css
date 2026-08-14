@@ -1221,13 +1221,34 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 .site-footer__inner { text-align: center; }
 .site-footer__partner { margin: 0; font-size: 0.82rem; }
 
-/* Reveal */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+/* Unified site motion */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.42s var(--ease), transform 0.42s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal--d1 { transition-delay: 0.08s; }
-.reveal--d2 { transition-delay: 0.16s; }
-.reveal--d3 { transition-delay: 0.24s; }
-.reveal--d4 { transition-delay: 0.32s; }
+.reveal--d1 { transition-delay: 0.06s; }
+.reveal--d2 { transition-delay: 0.12s; }
+.reveal--d3 { transition-delay: 0.18s; }
+.reveal--d4 { transition-delay: 0.24s; }
+
+:where(.service-card, .category-card, .why-card, .workflow-step, .contact-card, .catalog-request) {
+  transition: transform 0.24s var(--ease), box-shadow 0.24s var(--ease), border-color 0.24s var(--ease);
+}
+
+:where(.btn, .catalog-request__add, .catalog-request__remove, .hero-slider__btn, .hero-slider__dot) {
+  transition-duration: 0.2s;
+  transition-timing-function: var(--ease);
+}
+
+:where(.btn, .catalog-request__add, .catalog-request__remove, .hero-slider__btn):active {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(.service-card, .category-card, .why-card, .workflow-step, .contact-card):hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 109, 0, 0.24);
+    box-shadow: 0 12px 30px rgba(21, 21, 21, 0.1);
+  }
+}
 
 /* Responsive */
 @media (max-width: 1100px) {
