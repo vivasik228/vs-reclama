@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Заявка из перечня — ООО «ВС-РЕКЛАМА», Челябинск</title>
+  <title>Заявка на знаки безопасности — ООО «ВС-РЕКЛАМА», Челябинск</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=request-page-single-20260814" />
+  <link rel="stylesheet" href="styles.css?v=sign-request-page-20260814" />
 </head>
 <body data-page="ohrana-truda">
 <header class="site-header">
@@ -144,45 +144,41 @@
 </header>
     <main>
     <div class="page-hero"><div class="container reveal">
-      <p class="breadcrumb"><a href="index.html">Главная</a> / <a href="ohrana-truda.html">Охрана труда и ТБ</a> / Заявка из перечня</p>
-      <h1>Заявка из перечня</h1>
+      <p class="breadcrumb"><a href="index.html">Главная</a> / <a href="ohrana-truda.html">Охрана труда и ТБ</a> / <a href="znaki-tb-perechen.html">Знаки безопасности</a> / Заявка</p>
+      <h1>Заявка на знаки безопасности</h1>
     </div></div>
     <div class="container request-page">
       <div class="request-page__grid request-page__grid--single">
-      <section class="catalog-request reveal" aria-labelledby="catalog-request-title">
+
+      <section class="catalog-request reveal" aria-labelledby="sign-request-title">
         <div class="catalog-request__head">
           <span>Заявка заполняется заказчиком</span>
-          <h2 id="catalog-request-title">Перечень оставление заявки на получение плакатов по ТБ</h2>
-          <p>Заполните контактные данные и укажите выбранные номера плакатов из каталога.</p>
+          <h2 id="sign-request-title">Заявка на получение знаков по технике безопасности</h2>
+          <p>Заполните контактные данные и укажите коды выбранных знаков из каталога.</p>
         </div>
 
-        <form class="catalog-request__form" data-catalog-request data-request-kind="poster">
+        <form class="catalog-request__form" data-catalog-request data-request-kind="sign">
           <div class="catalog-request__contacts">
             <label><span>Контактное лицо</span><input name="contact" type="text" autocomplete="name" required /></label>
-            <label><span>ФИО</span><input name="full_name" type="text" autocomplete="name" required /></label>
             <label><span>Должность</span><input name="position" type="text" /></label>
-            <label><span>Название организации</span><input name="organization" type="text" autocomplete="organization" required /></label>
-            <label><span>ИНН/КПП</span><input name="inn_kpp" type="text" inputmode="numeric" /></label>
-            <label class="catalog-request__short"><span>Код города</span><input name="city_code" type="text" inputmode="tel" /></label>
-            <label><span>Телефон/факс</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+            <label class="catalog-request__wide"><span>Название компании</span><input name="organization" type="text" autocomplete="organization" required /></label>
+            <label><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" required /></label>
             <label><span>E-mail</span><input name="email" type="email" autocomplete="email" required /></label>
             <label class="catalog-request__wide"><span>Почтовый адрес</span><input name="postal_address" type="text" autocomplete="street-address" /></label>
-            <label class="catalog-request__wide"><span>Юридический адрес</span><input name="legal_address" type="text" /></label>
           </div>
 
           <div class="catalog-request__positions">
             <div class="catalog-request__positions-head">
-              <div><span>Выбранные плакаты</span><h3>Позиции заказа</h3></div>
-              <button class="catalog-request__add" type="button" data-add-poster>+ Добавить строку</button>
+              <div><span>Выбранные знаки</span><h3>Позиции заказа</h3></div>
+              <button class="catalog-request__add" type="button" data-add-item>+ Добавить строку</button>
             </div>
-            <div class="catalog-request__rows" data-poster-rows></div>
+            <div class="catalog-request__rows" data-request-rows></div>
           </div>
 
           <button class="btn btn--primary catalog-request__submit" type="submit">Отправить заявку</button>
-          <p class="catalog-request__note">Заявка будет подготовлена для отправки на почту <a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a>.<br />Тел.: <a href="tel:+73517710518">8 (351) 771-05-18</a></p>
+          <p class="catalog-request__note">Отправить заявку можно по факсу: <a href="tel:+73517710773">(351) 771-0773/74, доб. 330</a><br />или по e-mail: <a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a><br />Тел.: <a href="tel:+73517710511">(351) 771-0511</a>, <a href="tel:+73517710518">771-0518</a></p>
         </form>
       </section>
-
       </div>
     </div>
   </main>
