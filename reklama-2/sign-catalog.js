@@ -24,13 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const pages = sections.flatMap(section => section.items.map(item => ({ image: item[0], page: item[1], codes: item[2], section: section.title })));
+  const indexCard = document.createElement('article');
+  indexCard.className = 'poster-index';
+  indexCard.innerHTML = `<div class="poster-index__head"><span class="poster-index__eyebrow">Навигатор по каталогу</span><h3>Выберите нужную тему</h3><p>Нажмите на категорию — каталог сразу перенесёт вас к соответствующим знакам.</p></div><div class="poster-index__grid">${sections.map((section, index) => `<button type="button" class="poster-index__item" data-go-sign-section="${index}"><span><strong>${section.title}</strong><small>${section.description}</small></span><span class="poster-index__arrow">→</span></button>`).join('')}</div>`;
+  grid.append(indexCard);
   let globalIndex = 0;
-  sections.forEach(sectionData => {
+  sections.forEach((sectionData, sectionIndex) => {
     const start = globalIndex + 1;
     const end = globalIndex + sectionData.items.length;
     const section = document.createElement('div');
     section.className = 'poster-section';
-    section.innerHTML = `<div class="poster-section__mark"></div><div><span>Раздел каталога</span><h3>${sectionData.title}</h3><p>${sectionData.description}</p></div><div class="poster-section__range">Листы ${start}-${end}</div>`;
+    section.id = `sign-category-${sectionIndex}`;
+    section.innerHTML = `<div class="poster-section__mark" aria-hidden="true"></div><div><span class="poster-section__eyebrow">Раздел каталога</span><h3>${sectionData.title}</h3><p>${sectionData.description}</p></div><div class="poster-section__range">Страницы ${start}–${end}</div>`;
     grid.append(section);
 
     sectionData.items.forEach(item => {
@@ -43,6 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
       globalIndex += 1;
     });
   });
+
+  grid.querySelectorAll('[data-go-sign-section]').forEach(button => button.addEventListener('click', () => {
+    const target = grid.querySelector(`#sign-category-${button.dataset.goSignSection}`);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
 
   const viewer = document.querySelector('[data-sign-viewer]');
   const viewerImage = viewer.querySelector('img');
