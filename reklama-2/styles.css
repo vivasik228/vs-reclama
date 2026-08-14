@@ -106,7 +106,12 @@ main { flex: 1; }
 }
 
 .logo-link { display: flex; align-items: center; flex-shrink: 0; }
-.logo-link img, .logo-link svg { height: 50px; width: auto; }
+.logo-link img, .logo-link svg {
+  display: block;
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
 
 .header-address {
   display: flex;
