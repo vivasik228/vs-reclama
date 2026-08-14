@@ -42,7 +42,7 @@
   --radius: 8px;
   --radius-sm: 6px;
   --radius-pill: 4px;
-  --header-top-h: 76px;
+  --header-top-h: 88px;
   --header-nav-h: 48px;
   --header-h: calc(var(--header-top-h) + var(--header-nav-h));
   --font: "RussianRail G Pro", Arial, sans-serif;
@@ -128,7 +128,7 @@ main { flex: 1; }
 .logo-link { display: flex; align-items: center; flex-shrink: 0; }
 .logo-link img, .logo-link svg {
   display: block;
-  height: 56px;
+  height: 68px;
   width: auto;
   object-fit: contain;
 }
@@ -1476,6 +1476,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 }
 
 @media (max-width: 640px) {
+  :root { --header-top-h: 80px; }
   body { padding-bottom: 84px; }
   .sign-request-teaser {
     left: auto;
@@ -1488,9 +1489,9 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   }
   .container { width: calc(100% - 24px); }
 
-  .header-top__inner { min-height: 66px; }
+  .header-top__inner { min-height: var(--header-top-h); }
   .header-top { position: relative; z-index: 101; }
-  .logo img { width: 128px; height: auto; }
+  .logo-link img, .logo-link svg { height: 60px; width: auto; }
   .burger {
     width: 46px;
     height: 46px;
