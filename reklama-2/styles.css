@@ -68,7 +68,27 @@ body {
   flex-direction: column;
 }
 
-body[data-page="home"] { background: #fff; }
+body[data-page="home"] {
+  background-color: #f3f3f3;
+  background-image: url("assets/city-gray-bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+}
+
+body[data-page="home"] .hero-yarko {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 248, 243, 0.68));
+}
+
+body[data-page="home"] .advantages-bar,
+body[data-page="home"] .section--white {
+  background: rgba(255, 255, 255, 0.76);
+}
+
+body[data-page="home"] .section--gray,
+body[data-page="home"] .section--bg {
+  background: rgba(245, 245, 245, 0.76);
+}
 .page-bg { display: none; }
 
 img { max-width: 100%; display: block; }
