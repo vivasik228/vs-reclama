@@ -45,7 +45,7 @@
   --radius: 8px;
   --radius-sm: 6px;
   --radius-pill: 4px;
-  --header-top-h: 120px;
+  --header-top-h: 144px;
   --header-nav-h: 48px;
   --header-h: calc(var(--header-top-h) + var(--header-nav-h));
   --font: "RussianRail G Pro", Arial, sans-serif;
@@ -118,7 +118,7 @@ main { flex: 1; }
   position: absolute;
   inset: 0 0 auto;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue) 0 72%, var(--orange) 72% 100%);
+  background: #0050b8;
   pointer-events: none;
   z-index: 2;
 }
@@ -141,9 +141,9 @@ main { flex: 1; }
 .logo-link { display: flex; align-items: center; flex-shrink: 0; }
 .logo-link img, .logo-link svg {
   display: block;
-  width: 210px;
+  width: 260px;
   height: auto;
-  max-height: 100px;
+  max-height: 124px;
   object-fit: contain;
 }
 
@@ -1502,7 +1502,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 }
 
 @media (max-width: 640px) {
-  :root { --header-top-h: 96px; }
+  :root { --header-top-h: 112px; }
   body { padding-bottom: 84px; }
   .sign-request-teaser {
     left: auto;
@@ -1517,7 +1517,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 
   .header-top__inner { min-height: var(--header-top-h); }
   .header-top { position: relative; z-index: 101; }
-  .logo-link img, .logo-link svg { width: 160px; height: auto; max-height: 76px; }
+  .logo-link img, .logo-link svg { width: 190px; height: auto; max-height: 92px; }
   .burger {
     width: 46px;
     height: 46px;
