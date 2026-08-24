@@ -1170,6 +1170,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 
 .sidebar-card {
   position: sticky;
+  align-self: start;
   top: calc(var(--header-h) + 20px);
   padding: 28px;
   background: var(--dark);
