@@ -1043,10 +1043,35 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 .thermo-gallery__item figcaption { padding: 12px 14px; background: #fff; color: var(--text); font-weight: 600; font-size: 0.86rem; }
 
 /* DTF page */
-.dtf-copy h2 { margin: 30px 0 14px; font-size: 1.22rem; }
-.dtf-copy__lead { font-size: 1.02rem !important; line-height: 1.75 !important; }
+.dtf-copy {
+  display: grid;
+  gap: 18px;
+  overflow: hidden;
+}
 
-.dtf-gallery-section { margin: 30px 0 36px; }
+.dtf-copy__block {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.52s var(--ease), transform 0.52s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.dtf-copy.is-visible .dtf-copy__block { opacity: 1; transform: translateY(0); }
+.dtf-copy.is-visible .dtf-copy__block:nth-child(2) { transition-delay: 0.08s; }
+.dtf-copy.is-visible .dtf-copy__block:nth-child(3) { transition-delay: 0.16s; }
+.dtf-copy.is-visible .dtf-copy__block:nth-child(4) { transition-delay: 0.24s; }
+.dtf-copy.is-visible .dtf-copy__block:nth-child(5) { transition-delay: 0.32s; }
+.dtf-copy.is-visible .dtf-copy__block:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.dtf-copy__block h2 { margin: 0 0 14px; font-size: 1.2rem; }
+.dtf-copy__intro { font-size: 1.02rem; line-height: 1.75; }
+.dtf-copy__lead { font-size: 1.02rem !important; line-height: 1.75 !important; }
+.dtf-copy__lead:last-child { margin-bottom: 0; }
+
+.dtf-gallery-section { margin: 0; }
 
 .dtf-gallery {
   display: grid;
@@ -1943,6 +1968,8 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   .content-card { padding: 24px; }
   .thermo-copy { gap: 14px; }
   .thermo-copy__block { padding: 20px 18px; }
+  .dtf-copy { gap: 14px; }
+  .dtf-copy__block { padding: 20px 18px; }
   .thermo-specs { grid-template-columns: 1fr; }
   .thermo-steps li { padding-left: 48px; }
   .thermo-gallery { grid-template-columns: 1fr; }
