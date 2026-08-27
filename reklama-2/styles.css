@@ -1061,7 +1061,16 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   border-radius: var(--radius-sm);
   background: #fff;
   box-shadow: 0 8px 22px rgba(31, 31, 31, 0.07);
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  transition: opacity 0.48s var(--ease), transform 0.48s var(--ease), box-shadow 0.25s var(--ease);
 }
+
+.dtf-copy.is-visible .dtf-gallery__item { opacity: 1; transform: translateY(0) scale(1); }
+.dtf-copy.is-visible .dtf-gallery__item:nth-child(2) { transition-delay: 0.1s; }
+.dtf-copy.is-visible .dtf-gallery__item:nth-child(3) { transition-delay: 0.18s; }
+.dtf-copy.is-visible .dtf-gallery__item:nth-child(4) { transition-delay: 0.26s; }
+.dtf-copy.is-visible .dtf-gallery__item:hover { transform: translateY(-4px) scale(1); box-shadow: var(--shadow-md); }
 
 .dtf-gallery__item img {
   display: block;
