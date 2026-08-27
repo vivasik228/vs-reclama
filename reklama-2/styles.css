@@ -475,6 +475,7 @@ main { flex: 1; }
   padding-left: 22px;
   margin-bottom: 10px;
   font-size: 0.95rem;
+  font-weight: 700;
   color: var(--text);
 }
 
