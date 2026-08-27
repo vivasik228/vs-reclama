@@ -97,6 +97,28 @@ body[data-page="home"] .section--bg {
   background: rgba(245, 245, 245, 0.66);
 }
 
+/* Контрастный текст поверх городского фона без дополнительных плашек. */
+body[data-page="home"] .hero-yarko h1,
+body[data-page="home"] .section-title {
+  color: #171717;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.98),
+    0 3px 14px rgba(255, 255, 255, 0.9);
+}
+
+body[data-page="home"] .hero-yarko__lead,
+body[data-page="home"] .section-desc {
+  color: #303030;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.98),
+    0 2px 10px rgba(255, 255, 255, 0.92);
+}
+
+body[data-page="home"] .section-eyebrow {
+  color: var(--orange-dark);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.98);
+}
+
 body:not([data-page="home"]) {
   background-color: #ececea;
   background-image:
