@@ -92,6 +92,31 @@ body[data-page="home"] .section--gray,
 body[data-page="home"] .section--bg {
   background: rgba(245, 245, 245, 0.76);
 }
+
+body:not([data-page="home"]) {
+  background-color: #f4f4f2;
+  background-image:
+    radial-gradient(ellipse 58% 36% at 8% 18%, rgba(255, 109, 0, 0.09) 0%, rgba(255, 109, 0, 0) 72%),
+    radial-gradient(ellipse 48% 34% at 92% 12%, rgba(31, 31, 31, 0.065) 0%, rgba(31, 31, 31, 0) 74%),
+    linear-gradient(148deg, #fbfbfa 0%, #f1f2f2 48%, #fafafa 100%);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body:not([data-page="home"]) .page-hero {
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+body:not([data-page="home"]) .content-wrap,
+body:not([data-page="home"]) .catalog-section,
+body:not([data-page="home"]) .application-section {
+  background: transparent;
+}
+
 .page-bg { display: none; }
 
 img { max-width: 100%; display: block; }
@@ -1866,6 +1891,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 @media (max-width: 640px) {
   :root { --header-top-h: 112px; }
   body { padding-bottom: 84px; }
+  body:not([data-page="home"]) { background-attachment: scroll; }
   .sign-request-teaser {
     left: auto;
     right: 12px;
