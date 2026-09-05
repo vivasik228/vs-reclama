@@ -479,6 +479,15 @@ main { flex: 1; }
   color: var(--text);
 }
 
+.nav-subgroup__panel a {
+  margin: 0 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  opacity: 0.88;
+}
+
 .hero-yarko__bullets li::before {
   content: "✓";
   position: absolute;
@@ -2099,6 +2108,18 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   .mobile-nav-subgroup.is-open > .mobile-nav-subgroup__toggle::after { content: " −"; }
   .mobile-nav-subgroup__children { display: none; gap: 6px; padding-left: 10px; }
   .mobile-nav-subgroup.is-open > .mobile-nav-subgroup__children { display: grid; }
+  .mobile-nav-subgroup__children > a {
+    display: flex;
+    min-height: 38px;
+    margin: 0 14px 0 8px;
+    padding: 9px 12px;
+    align-items: center;
+    border-radius: 9px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: none;
+  }
   .hero-yarko { padding-top: calc(var(--header-h) + 24px); padding-bottom: 34px; }
   .hero-yarko__grid { gap: 26px; }
   .hero-yarko h1 { font-size: 2rem; line-height: 1.04; }
