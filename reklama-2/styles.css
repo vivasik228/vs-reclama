@@ -2064,11 +2064,11 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
     border-right: 4px solid var(--orange);
     border-bottom: 4px solid var(--orange);
     border-radius: 2px;
-    transform: translateY(-4px) rotate(45deg);
+    transform: rotate(45deg);
     transition: transform .2s ease;
   }
   .mobile-nav-group.is-open > .mobile-nav-group__toggle .mobile-nav-group__arrow {
-    transform: translateY(4px) rotate(225deg);
+    transform: rotate(225deg);
   }
 
   .mobile-nav-group__children {
