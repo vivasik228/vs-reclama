@@ -34,19 +34,34 @@
   progress.append(indicator);
   inner.append(img, progress);
   overlay.append(inner);
-  let fallback, fade;
+  const minimumDisplay = 4000;
+  let fallback, fade, hold;
+  let shownAt = Date.now();
+  let pageReady = false;
   function mount() {
     if (!overlay.isConnected && document.body) document.body.append(overlay);
   }
   function hide() {
     clearTimeout(fallback);
+    clearTimeout(hold);
     overlay.classList.add('is-done');
     fade = setTimeout(() => { overlay.hidden = true; }, 220);
   }
+  function finishWhenReady() {
+    pageReady = true;
+    clearTimeout(hold);
+    hold = setTimeout(hide, Math.max(0, minimumDisplay - (Date.now() - shownAt)));
+  }
+  img.addEventListener('load', () => {
+    shownAt = Date.now();
+    if (pageReady && !overlay.hidden) finishWhenReady();
+  }, {once:true});
   function show() {
     mount();
     clearTimeout(fade);
     clearTimeout(fallback);
+    clearTimeout(hold);
+    shownAt = Date.now();
     overlay.hidden = false;
     overlay.classList.remove('is-done');
     fallback = setTimeout(hide, 8000);
@@ -58,7 +73,7 @@
   observer.observe(document.documentElement, {childList:true});
   mount();
   fallback = setTimeout(hide, 8000);
-  window.addEventListener('load', hide, {once:true});
+  window.addEventListener('load', finishWhenReady, {once:true});
   window.addEventListener('pageshow', event => { if (event.persisted) hide(); });
   document.addEventListener('click', event => {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
