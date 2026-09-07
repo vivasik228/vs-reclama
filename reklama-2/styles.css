@@ -81,29 +81,24 @@ body[data-page="home"] {
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-position: center top, center top, center top, center top;
   background-size: cover, cover, cover, 100% auto;
-  animation: home-city-drift 18s ease-in-out infinite;
 }
 
-/* Двигается только городской рисунок; текст и цветовые слои неподвижны. */
-@keyframes home-city-drift {
-  0%, 100% {
-    background-position: center top, center top, center top, center top;
-  }
-  50% {
-    background-position: center top, center top, center top, calc(50% + 14px) 12px;
-  }
+body[data-page="home"].has-city-motion {
+  position: relative;
+  isolation: isolate;
+  background-image:
+    radial-gradient(ellipse 60% 38% at 5% 16%, rgba(255,109,0,.18), transparent 72%),
+    radial-gradient(ellipse 50% 34% at 96% 30%, rgba(31,31,31,.12), transparent 74%),
+    linear-gradient(142deg, rgba(255,255,255,.18), rgba(232,233,231,.12) 52%, rgba(255,255,255,.1));
 }
-
-@media (max-width: 767px) {
-  body[data-page="home"] { animation-name: home-city-drift-mobile; }
-  @keyframes home-city-drift-mobile {
-    0%, 100% { background-position: center top, center top, center top, center top; }
-    50% { background-position: center top, center top, center top, calc(50% + 6px) 8px; }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body[data-page="home"] { animation: none; }
+.home-city-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
 }
 
 body[data-page="home"] .hero-yarko {
