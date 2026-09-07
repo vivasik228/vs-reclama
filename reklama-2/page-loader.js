@@ -4,11 +4,11 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const style = document.createElement('style');
   style.textContent = `
-    .page-loader{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:#fff;opacity:1;transition:opacity .2s ease;pointer-events:all}
+    .page-loader{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:radial-gradient(ellipse 32% 70% at 0% 50%,rgba(255,109,0,.19),rgba(255,109,0,.055) 42%,transparent 100%),radial-gradient(ellipse 32% 70% at 100% 50%,rgba(255,109,0,.19),rgba(255,109,0,.055) 42%,transparent 100%),#fffdfc;opacity:1;transition:opacity .2s ease;pointer-events:all}
     .page-loader[hidden]{display:none}
     .page-loader.is-done{opacity:0;pointer-events:none}
     .page-loader__inner{width:min(280px,72vw);text-align:center}
-    .page-loader__image{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+    .page-loader__image{display:block;width:100%;height:auto;border:0;border-radius:0;box-shadow:none;background:transparent;mix-blend-mode:darken}
     .page-loader__progress{position:relative;height:8px;width:72%;margin:8px auto 0;overflow:hidden;border-radius:9999px;background:#fff0e2}
     .page-loader__indicator{height:100%;width:45%;border-radius:inherit;background:#ff7900;animation:page-loading 1.15s ease-in-out infinite}
     @keyframes page-loading{from{transform:translateX(-110%)}to{transform:translateX(325%)}}
@@ -24,7 +24,7 @@
   const img = new Image(480, 400);
   img.className = 'page-loader__image';
   img.alt = '';
-  img.src = new URL(reduced ? 'assets/thermopress-loading.png' : 'assets/thermopress-loading.gif', base).href;
+  img.src = new URL(reduced ? 'assets/thermopress-loading.png?v=warm-aura' : 'assets/thermopress-loading.gif?v=warm-aura', base).href;
   const progress = document.createElement('div');
   progress.className = 'page-loader__progress';
   progress.setAttribute('role', 'progressbar');
