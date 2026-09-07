@@ -81,6 +81,29 @@ body[data-page="home"] {
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-position: center top, center top, center top, center top;
   background-size: cover, cover, cover, 100% auto;
+  animation: home-city-drift 18s ease-in-out infinite;
+}
+
+/* Двигается только городской рисунок; текст и цветовые слои неподвижны. */
+@keyframes home-city-drift {
+  0%, 100% {
+    background-position: center top, center top, center top, center top;
+  }
+  50% {
+    background-position: center top, center top, center top, calc(50% + 14px) 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-page="home"] { animation-name: home-city-drift-mobile; }
+  @keyframes home-city-drift-mobile {
+    0%, 100% { background-position: center top, center top, center top, center top; }
+    50% { background-position: center top, center top, center top, calc(50% + 6px) 8px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="home"] { animation: none; }
 }
 
 body[data-page="home"] .hero-yarko {
