@@ -34,7 +34,7 @@
   progress.append(indicator);
   inner.append(img, progress);
   overlay.append(inner);
-  const minimumDisplay = 4000;
+  const minimumDisplay = 2000;
   let fallback, fade, hold;
   let shownAt = Date.now();
   let pageReady = false;
