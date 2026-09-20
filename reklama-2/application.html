@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=header-restored-20260907" />
-  <script src="page-loader.js?v=20260908-1sec"></script>
+  <link rel="stylesheet" href="styles.css?v=20260921" />
+  <script src="page-loader.js?v=20260921-fast"></script>
+  <link rel="stylesheet" href="site-enhancements.css?v=20260921" />
 </head>
 <body data-page="application">
 <header class="site-header">
@@ -80,7 +81,7 @@
           <div class="nav-dropdown__panel">
             <a class="nav-dropdown__link" href="lenty-markery.html">Ленты маркеры</a>
             <a class="nav-dropdown__link" href="otssylka-k-gostu.html">Отсылка к ГОСТу</a>
-            <a class="nav-dropdown__link" href="nashi-raboty-markirovka.html">Наши работы</a>
+
           </div>
         </div>
         <a href="nashi-raboty.html" data-page="nashi-raboty">Наши работы</a>
@@ -138,7 +139,7 @@
       <div class="mobile-nav-group__children">
         <a href="lenty-markery.html">Ленты маркеры</a>
         <a href="otssylka-k-gostu.html">Отсылка к ГОСТу</a>
-        <a href="nashi-raboty-markirovka.html">Наши работы</a>
+
       </div>
     </div>
     <a href="nashi-raboty.html" data-page="nashi-raboty">Наши работы</a>
@@ -160,7 +161,7 @@
         <aside class="application-info reveal">
           <span class="application-info__number">01</span>
           <h2>Расскажите, как с вами связаться</h2>
-          <p>Поля со звёздочкой обязательны. После нажатия кнопки откроется ваша почтовая программа с готовой заявкой.</p>
+          <p>Поля со звёздочкой обязательны. Подготовьте заявку, затем отправьте её через свою почту. Текст также можно скопировать или сохранить файлом.</p>
           <div class="application-info__contact">
             <span>Можно позвонить напрямую</span>
             <a href="tel:+73517710511">(351) 771-05-11</a>
@@ -172,8 +173,8 @@
           <form class="application-form" action="mailto:v-s-reklama@mail.ru" method="post" enctype="text/plain">
             <div class="application-form__grid">
               <label class="form-field">
-                <span>Фамилия <b aria-hidden="true">*</b></span>
-                <input type="text" name="Фамилия" autocomplete="family-name" placeholder="Иванов" required />
+                <span>Фамилия</span>
+                <input type="text" name="Фамилия" autocomplete="family-name" placeholder="Иванов" />
               </label>
               <label class="form-field">
                 <span>Имя <b aria-hidden="true">*</b></span>
@@ -192,11 +193,12 @@
                 <input type="email" name="Email" autocomplete="email" placeholder="name@example.ru" required />
               </label>
             </div>
+            <label class="form-field application-form__full"><span>Что нужно изготовить?</span><textarea name="Описание заказа" rows="4" maxlength="5000" placeholder="Например: вывеска для магазина, примерные размеры и желаемый срок"></textarea></label>
             <label class="application-consent">
               <input type="checkbox" required />
               <span>Я согласен на обработку указанных контактных данных для ответа на заявку.</span>
             </label>
-            <button class="btn btn--primary btn--lg application-form__submit" type="submit">Отправить заявку</button>
+            <button class="btn btn--primary btn--lg application-form__submit" type="submit">Подготовить заявку</button>
             <p class="application-form__note">Заявка будет адресована на <a href="mailto:v-s-reklama@mail.ru">v-s-reklama@mail.ru</a>.</p>
           </form>
         </div>
@@ -215,6 +217,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260921"></script>
+  <script src="site-enhancements.js?v=20260921"></script>
 </body>
 </html>

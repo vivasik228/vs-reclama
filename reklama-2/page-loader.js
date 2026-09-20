@@ -34,7 +34,7 @@
   progress.append(indicator);
   inner.append(img, progress);
   overlay.append(inner);
-  const minimumDisplay = 1000;
+  const minimumDisplay = 0;
   let fallback, fade, hold;
   let shownAt = Date.now();
   let pageReady = false;
@@ -64,7 +64,7 @@
     shownAt = Date.now();
     overlay.hidden = false;
     overlay.classList.remove('is-done');
-    fallback = setTimeout(hide, 8000);
+    fallback = setTimeout(hide, 1500);
   }
   // Show as soon as the parser creates the body; no HTML without JS is hidden.
   const observer = new MutationObserver(() => {
@@ -72,8 +72,10 @@
   });
   observer.observe(document.documentElement, {childList:true});
   mount();
-  fallback = setTimeout(hide, 8000);
-  window.addEventListener('load', finishWhenReady, {once:true});
+  fallback = setTimeout(hide, 1500);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', finishWhenReady, {once:true});
+  } else { finishWhenReady(); }
   window.addEventListener('pageshow', event => { if (event.persisted) hide(); });
   document.addEventListener('click', event => {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;

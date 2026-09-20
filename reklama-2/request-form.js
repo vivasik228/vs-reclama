@@ -42,7 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const items = [...rows.querySelectorAll('.catalog-request__row')]
         .map((row) => [...row.querySelectorAll('input')].map((input) => input.value.trim()))
         .filter((values) => values.some(Boolean));
-      const title = isSign ? 'ЗАЯВКА НА ПОЛУЧЕНИЕ ЗНАКОВ ПО ТБ' : 'АНКЕТА-ЗАЯВКА НА ПОЛУЧЕНИЕ ПЛАКАТОВ ПО ТБ';
+      if (!items.length || items.some(values => !values[0] || !values[2] || Number(values[2]) < 1 || !Number.isInteger(Number(values[2])))) {
+        let error = form.querySelector('.request-items-error');
+        if (!error) {
+          error = document.createElement('p'); error.className = 'request-items-error';
+          error.setAttribute('role', 'alert'); rows.before(error);
+        }
+        error.textContent = 'Добавьте хотя бы одну позицию. В каждой заполненной строке укажите код и целое количество от 1.';
+        error.tabIndex = -1; error.focus();
+        return;
+      }
+      form.querySelector('.request-items-error')?.remove();
+      const title = isSign ? 'ЗАЯВКА НА ЗАКАЗ ЗНАКОВ БЕЗОПАСНОСТИ' : 'ЗАЯВКА НА ЗАКАЗ ПЛАКАТОВ ПО ОХРАНЕ ТРУДА';
       const lines = [
         title, '',
         `Контактное лицо: ${data.get('contact') || ''}`,
@@ -58,7 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ...items.map((values, index) => `${index + 1}. ${itemName}: ${values[0] || '—'}; размер: ${values[1] || '—'}; количество: ${values[2] || '—'}; материал: ${values[3] || '—'}`)
       ];
       const subject = `Заявка на ${isSign ? 'знаки' : 'плакаты'} по ТБ — ${data.get('organization') || data.get('contact') || 'заказчик'}`;
-      window.location.href = `mailto:v-s-reklama@mail.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      if (window.prepareSiteRequest) {
+        window.prepareSiteRequest(lines.join('\n'), subject, form);
+      } else {
+        window.location.href = `mailto:v-s-reklama@mail.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      }
     });
   });
 });

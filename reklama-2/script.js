@@ -135,19 +135,22 @@
     cursorGlow.remove();
   }
 
-  const revealObserver = new IntersectionObserver(
+  const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches && entry.target.animate) {
+            entry.target.animate([{opacity: 0, transform: 'translateY(12px)'}, {opacity: 1, transform: 'translateY(0)'}], {duration: 420, easing: 'ease-out'});
+          }
           revealObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-  );
+  ) : null;
 
-  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+  document.querySelectorAll(".reveal, .thermo-copy__block, .thermo-gallery__item, .dtf-copy__block, .dtf-gallery__item, .embroidery-copy__block, .embroidery-gallery__item, .logo-works__item").forEach((el) => revealObserver?.observe(el));
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {

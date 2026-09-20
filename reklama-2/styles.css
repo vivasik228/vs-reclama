@@ -1352,7 +1352,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   transition: opacity 0.52s var(--ease), transform 0.52s var(--ease), box-shadow 0.25s var(--ease);
 }
 
-.logo-works__block.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.52s var(--ease), transform 0.52s var(--ease), box-shadow 0.25s var(--ease); }
+.logo-works__block.reveal { opacity: 1; transition: opacity 0.52s var(--ease), transform 0.52s var(--ease), box-shadow 0.25s var(--ease); }
 .logo-works__block.reveal.is-visible { opacity: 1; transform: translateY(0); }
 .logo-works__block.reveal.is-visible:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .logo-works__block h2 { margin: 0 0 14px; font-size: 1.2rem; }
@@ -1779,7 +1779,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
 .site-footer__partner { margin: 0; font-size: 0.82rem; }
 
 /* Unified site motion */
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.42s var(--ease), transform 0.42s var(--ease); }
+.reveal { opacity: 1; transition: opacity 0.42s var(--ease), transform 0.42s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .reveal--d1 { transition-delay: 0.06s; }
 .reveal--d2 { transition-delay: 0.12s; }
@@ -1807,7 +1807,7 @@ button.catalog-subtab, button.catalog-subtab .catalog-tab__text {
   }
 }
 
-+/* Safety works showcase */
+/* Safety works showcase */
 .safety-works { padding: 28px; }
 .safety-works__intro { margin-bottom: 24px; }
 .safety-works__intro > span {
