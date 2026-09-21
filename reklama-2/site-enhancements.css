@@ -18,3 +18,16 @@
 .thermo-copy__block, .thermo-gallery__item, .dtf-copy__block, .dtf-gallery__item, .embroidery-copy__block, .embroidery-gallery__item, .logo-works__block, .logo-works__item { opacity:1; transform:none; }
 .thermo-gallery__item img[data-crop] { height:auto; max-height:none; object-fit:contain; }
 body[data-page="application"] .btn--order { display:none; }
+.portfolio-filters { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+.portfolio-filters button { padding:12px 18px; min-height:44px; border:1px solid #eadfd6; border-radius:999px; background:#fff; color:#222; font:inherit; font-weight:700; cursor:pointer; }
+.portfolio-filters button[aria-pressed="true"] { background:#222; color:#fff; border-color:#222; }
+.portfolio-filters button:hover { border-color:#ff7900; }
+.portfolio-filters button:focus-visible { outline:3px solid #ff7900; outline-offset:3px; }
+.portfolio-filter-status { color:#666; margin:0 0 28px; }
+.portfolio-section[hidden] { display:none; }
+.work-order-link { display:block; width:fit-content; margin-top:14px; padding:10px 14px; border:1px solid #ffd3ad; border-radius:10px; background:#fff1e5; color:#993e00!important; font-weight:700; text-decoration:none; }
+.photo-viewer__order { margin:0 auto 14px; }
+.photo-viewer__order[hidden] { display:none; }
+.selected-work { margin-bottom:24px; padding:18px; background:#fff1e5; border:1px solid #ffd3ad; border-radius:14px; overflow-wrap:anywhere; }
+.selected-work p { margin:8px 0; }
+@media(max-width:600px) { .portfolio-filters { gap:8px; } .portfolio-filters button { padding:10px 13px; font-size:14px; } }

@@ -47,6 +47,34 @@
   };
 
   const application = document.querySelector('.application-form');
+  if (application) {
+    const params = new URLSearchParams(location.search);
+    const work = (params.get('work') || '').slice(0, 300);
+    const service = (params.get('service') || '').slice(0, 150);
+    if (work) {
+      const selected = document.createElement('div');
+      selected.className = 'selected-work';
+      const title = document.createElement('strong');
+      title.textContent = 'Выбранный пример: ' + work;
+      const detail = document.createElement('p'); detail.textContent = service;
+      selected.append(title, detail);
+      for (const [name, value] of [['Пример работы', work], ['Услуга', service]]) {
+        const input = document.createElement('input'); input.type = 'hidden'; input.name = name; input.value = value;
+        selected.append(input);
+      }
+      const source = params.get('source') || '';
+      // Only allow a local HTML page, never an arbitrary URL from the query string.
+      if (/^[a-z0-9-]+\.html$/.test(source)) {
+        const back = document.createElement('a'); back.href = source; back.textContent = 'Вернуться к примерам →';
+        selected.append(back);
+        const input = document.createElement('input'); input.type = 'hidden'; input.name = 'Страница примера';
+        input.value = new URL(source, location.href).href; selected.append(input);
+      }
+      application.prepend(selected);
+      const description = application.querySelector('[name="Описание заказа"]');
+      if (description && !description.value) description.value = 'Хочу заказать похожую работу: ' + work + '.\n';
+    }
+  }
   application?.addEventListener('submit', event => {
     event.preventDefault();
     if (!application.reportValidity()) return;
@@ -55,6 +83,66 @@
   });
 
   const photos = [...document.querySelectorAll('img[data-full-src]')];
+  const sections = [...document.querySelectorAll('.portfolio-section')];
+  if (sections.length) {
+    const groups = [
+      ['all', 'Все работы', () => true],
+      ['signs', 'Вывески', section => section.id.includes('vyveski')],
+      ['stands', 'Стенды', section => section.id === 'works-stendy'],
+      ['cars', 'Автомобили', section => section.id === 'works-dop-uslugi'],
+      ['clothes', 'Логотипы на одежду', section => /termopechat|dtf-pechat|vyshivka/.test(section.id)],
+      ['safety', 'Охрана труда', section => /plany-evakuacii|ohrana/.test(section.id)]
+    ];
+    const nav = document.querySelector('.portfolio-nav');
+    const controls = document.createElement('div'); controls.className = 'portfolio-filters';
+    controls.setAttribute('role', 'group'); controls.setAttribute('aria-label', 'Фильтр работ');
+    const status = document.createElement('p'); status.className = 'portfolio-filter-status';
+    status.setAttribute('role', 'status');
+    const buttons = new Map();
+    for (const [key, label, includes] of groups) {
+      const count = sections.filter(includes).reduce((sum, section) => sum + section.querySelectorAll('.portfolio-card').length, 0);
+      const button = document.createElement('button'); button.type = 'button';
+      button.textContent = `${label} · ${count}`; button.dataset.filter = key;
+      button.addEventListener('click', () => select(key, true));
+      buttons.set(key, button); controls.append(button);
+    }
+    nav.replaceWith(controls, status);
+    function select(key, updateUrl) {
+      const group = groups.find(item => item[0] === key) || groups[0];
+      let count = 0;
+      sections.forEach(section => {
+        section.hidden = !group[2](section);
+        if (!section.hidden) count += section.querySelectorAll('.portfolio-card').length;
+      });
+      buttons.forEach((button, value) => button.setAttribute('aria-pressed', String(value === group[0])));
+      status.textContent = `Показано работ: ${count} из ${photos.length}`;
+      if (updateUrl) {
+        const url = new URL(location.href);
+        if (group[0] === 'all') url.searchParams.delete('category'); else url.searchParams.set('category', group[0]);
+        url.hash = ''; history.pushState(null, '', url);
+      }
+    }
+    const restore = () => {
+      const section = sections.find(item => '#' + item.id === location.hash);
+      const key = section ? groups.slice(1).find(group => group[2](section))?.[0] : new URLSearchParams(location.search).get('category');
+      select(key, false);
+    };
+    restore(); window.addEventListener('popstate', restore); window.addEventListener('hashchange', restore);
+  }
+  const orderLinks = new Map();
+  photos.forEach(photo => {
+    const figure = photo.closest('figure');
+    const caption = figure?.querySelector('figcaption');
+    if (!caption) return;
+    const title = figure.querySelector('h3')?.textContent.trim() || caption.textContent.trim() || photo.alt;
+    const section = figure.closest('.portfolio-section, .logo-works__block');
+    const service = section?.querySelector('h2')?.textContent.trim() || document.querySelector('h1')?.textContent.trim() || '';
+    const source = figure.querySelector('figcaption a[href$=".html"]')?.getAttribute('href') || location.pathname.split('/').pop() || 'nashi-raboty.html';
+    const query = new URLSearchParams({work:title, service, source});
+    const link = document.createElement('a'); link.className = 'work-order-link';
+    link.href = 'application.html?' + query; link.textContent = 'Заказать похожее →';
+    caption.append(link); orderLinks.set(photo, link.href);
+  });
   if (!photos.length || typeof HTMLDialogElement === 'undefined') return;
   const dialog = document.createElement('dialog');
   dialog.className = 'photo-viewer';
@@ -63,10 +151,13 @@
   document.body.append(dialog);
   const media = dialog.querySelector('.photo-viewer__media');
   const caption = dialog.querySelector('.photo-viewer__caption');
+  const order = document.createElement('a'); order.className = 'work-order-link photo-viewer__order';
+  order.textContent = 'Заказать похожее →'; caption.after(order);
+  let visiblePhotos = photos;
   let current = 0, previousFocus, oldOverflow;
   const show = index => {
-    current = (index + photos.length) % photos.length;
-    const source = photos[current];
+    current = (index + visiblePhotos.length) % visiblePhotos.length;
+    const source = visiblePhotos[current];
     media.replaceChildren();
     if (source.dataset.crop) {
       const ns = 'http://www.w3.org/2000/svg';
@@ -83,7 +174,9 @@
       image.addEventListener('error', () => { caption.textContent = 'Не удалось загрузить оригинал. Попробуйте открыть фотографию позже.'; });
       media.append(image);
     }
-    caption.textContent = `${current + 1} / ${photos.length} — ${source.alt}`;
+    caption.textContent = `${current + 1} / ${visiblePhotos.length} — ${source.alt}`;
+    order.hidden = !orderLinks.has(source);
+    if (orderLinks.has(source)) order.href = orderLinks.get(source);
   };
   const close = () => dialog.close();
   dialog.querySelector('.photo-viewer__close').addEventListener('click', close);
@@ -111,6 +204,7 @@
   });
   function open(index, trigger) {
     previousFocus = trigger; oldOverflow = document.body.style.overflow;
-    show(index); dialog.showModal(); document.body.style.overflow = 'hidden';
+    visiblePhotos = photos.filter(photo => !photo.closest('[hidden]'));
+    show(visiblePhotos.indexOf(photos[index])); dialog.showModal(); document.body.style.overflow = 'hidden';
   }
 })();
