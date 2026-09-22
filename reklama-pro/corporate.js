@@ -17,4 +17,16 @@
   const group=groups[document.body.dataset.page];
   if(group){const nav=document.createElement('nav');nav.className='related-directions';nav.setAttribute('aria-label','Услуги направления');for(const [name,href] of group){const a=document.createElement('a');a.href=href;a.textContent=name+' ↗';nav.append(a);}document.querySelector('.page-hero .container')?.append(nav);}
 
+  const formGrid=document.querySelector('.application-form__grid');
+  const phoneField=formGrid?.querySelector('.phone-field');
+  if(phoneField){
+    const desktopNext=phoneField.nextElementSibling;
+    const mobile=matchMedia('(max-width:600px)');
+    const positionPhone=()=>{
+      if(mobile.matches)formGrid.append(phoneField);
+      else formGrid.insertBefore(phoneField,desktopNext);
+    };
+    positionPhone();
+    mobile.addEventListener('change',positionPhone);
+  }
 })();
