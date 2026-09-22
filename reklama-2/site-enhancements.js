@@ -101,6 +101,7 @@
     const buttons = new Map();
     for (const [key, label, includes] of groups) {
       const count = sections.filter(includes).reduce((sum, section) => sum + section.querySelectorAll('.portfolio-card').length, 0);
+      if (!count) continue;
       const button = document.createElement('button'); button.type = 'button';
       button.textContent = `${label} · ${count}`; button.dataset.filter = key;
       button.addEventListener('click', () => select(key, true));
