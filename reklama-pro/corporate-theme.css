@@ -118,3 +118,5 @@ body.corporate-site[data-page]{background:var(--paper);font-family:var(--font);c
 .corporate-site .corporate-home .section-head{text-align:left;margin-bottom:40px}
 .corporate-site .corporate-home .why-card{text-align:left}
 .corporate-site .thermo-gallery,.corporate-site .dtf-gallery,.corporate-site .embroidery-gallery,.corporate-site .logo-works__gallery{align-items:start}
+.corporate-site .phone-error{display:block;color:#b42318;font:600 12px/1.4 Arial,sans-serif;margin-top:6px}
+.corporate-site input[aria-invalid="true"]{border-color:#b42318!important}

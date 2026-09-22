@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `Должность: ${data.get('position') || ''}`,
         `Название ${isSign ? 'компании' : 'организации'}: ${data.get('organization') || ''}`,
         ...(!isSign ? [`ИНН/КПП: ${data.get('inn_kpp') || ''}`, `Код города: ${data.get('city_code') || ''}`] : []),
-        `Телефон${isSign ? '' : '/факс'}: ${data.get('phone') || ''}`,
+        `Номер телефона: ${data.get('phone') || ''}`,
         `E-mail: ${data.get('email') || ''}`,
         `Почтовый адрес: ${data.get('postal_address') || ''}`,
         ...(!isSign ? [`Юридический адрес: ${data.get('legal_address') || ''}`] : []), '',
