@@ -172,22 +172,22 @@
           <form class="application-form" action="mailto:v-s-reklama@mail.ru" method="post" enctype="text/plain">
             <div class="application-form__grid">
               <label class="form-field">
+                <span>Имя <b aria-hidden="true">*</b></span>
+                <input type="text" name="Имя" autocomplete="given-name" placeholder="Иван" required />
+              </label>
+              <label class="form-field">
+                <span>Номер телефона <b aria-hidden="true">*</b></span>
+                <input type="tel" name="Контактный телефон" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required />
+              </label>
+              <label class="form-field">
                 <span>Фамилия</span>
                 <input type="text" name="Фамилия" autocomplete="family-name" placeholder="Иванов" />
               </label>
               <label class="form-field">
-                <span>Имя <b aria-hidden="true">*</b></span>
-                <input type="text" name="Имя" autocomplete="given-name" placeholder="Иван" required />
-              </label>
-              <label class="form-field application-form__full">
                 <span>Отчество</span>
                 <input type="text" name="Отчество" autocomplete="additional-name" placeholder="Иванович" />
               </label>
-              <label class="form-field">
-                <span>Контактный телефон <b aria-hidden="true">*</b></span>
-                <input type="tel" name="Контактный телефон" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required />
-              </label>
-              <label class="form-field">
+              <label class="form-field application-form__full">
                 <span>Email <b aria-hidden="true">*</b></span>
                 <input type="email" name="Email" autocomplete="email" placeholder="name@example.ru" required />
               </label>
