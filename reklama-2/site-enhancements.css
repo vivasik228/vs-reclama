@@ -31,3 +31,15 @@ body[data-page="application"] .btn--order { display:none; }
 .selected-work { margin-bottom:24px; padding:18px; background:#fff1e5; border:1px solid #ffd3ad; border-radius:14px; overflow-wrap:anywhere; }
 .selected-work p { margin:8px 0; }
 @media(max-width:600px) { .portfolio-filters { gap:8px; } .portfolio-filters button { padding:10px 13px; font-size:14px; } }
+/* A 5–9% orange wash separates information cards from the page background. */
+.content-card:not(.thermo-copy):not(.dtf-copy):not(.embroidery-copy):not(.logo-works),
+.thermo-copy__block, .dtf-copy__block, .embroidery-copy__block, .logo-works__block,
+.contact-card, .why-card, .workflow-step, .catalog-panel,
+.catalog-request, .application-card, .sign-request-info {
+  background:linear-gradient(135deg, rgba(255,109,0,.09), rgba(255,109,0,.05)), #fff;
+  border-color:rgba(190,105,45,.17);
+}
+.portfolio-card figcaption, .thermo-gallery__item figcaption,
+.dtf-gallery__item figcaption, .embroidery-gallery__item figcaption, .logo-works__item figcaption {
+  background:linear-gradient(135deg, rgba(255,109,0,.07), rgba(255,109,0,.05)), #fff;
+}
