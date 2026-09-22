@@ -120,3 +120,8 @@ body.corporate-site[data-page]{background:var(--paper);font-family:var(--font);c
 .corporate-site .thermo-gallery,.corporate-site .dtf-gallery,.corporate-site .embroidery-gallery,.corporate-site .logo-works__gallery{align-items:start}
 .corporate-site .phone-error{display:block;color:#b42318;font:600 12px/1.4 Arial,sans-serif;margin-top:6px}
 .corporate-site input[aria-invalid="true"]{border-color:#b42318!important}
+.corporate-site .iti{display:block;width:100%;min-width:0}
+.corporate-site .iti input.iti__tel-input{width:100%;min-width:0}
+.corporate-site .catalog-request label>.phone-error{color:#b42318;font-size:12px;font-weight:600}
+.corporate-site .iti__selected-country{border-right:1px solid #e1e1d9;background:#fffaf4;border-radius:4px 0 0 4px}
+.corporate-site .iti__dropdown-content{z-index:120;border-radius:5px;box-shadow:0 12px 35px #22252124}

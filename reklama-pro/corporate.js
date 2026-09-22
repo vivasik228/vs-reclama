@@ -17,32 +17,4 @@
   const group=groups[document.body.dataset.page];
   if(group){const nav=document.createElement('nav');nav.className='related-directions';nav.setAttribute('aria-label','Услуги направления');for(const [name,href] of group){const a=document.createElement('a');a.href=href;a.textContent=name+' ↗';nav.append(a);}document.querySelector('.page-hero .container')?.append(nav);}
 
-  document.querySelectorAll('.application-form input[type="tel"], .catalog-request__form input[name="phone"]').forEach(phone=>{
-    const error=document.createElement('span');
-    error.className='phone-error';
-    error.id='phone-error-'+Math.random().toString(36).slice(2);
-    error.setAttribute('aria-live','polite');
-    phone.closest('label').append(error);
-    phone.setAttribute('aria-describedby',error.id);
-    const message=()=>{
-      if(!phone.value)return 'Укажите номер телефона.';
-      if(phone.value.length!==11)return 'Введите 11 цифр номера телефона.';
-      if(!/^[78]/.test(phone.value))return 'Номер должен начинаться с 7 или 8.';
-      return '';
-    };
-    const show=(text)=>{error.textContent=text;phone.setCustomValidity(text);phone.setAttribute('aria-invalid',String(Boolean(text)));};
-    phone.addEventListener('beforeinput',event=>{
-      if(event.data && /\D/.test(event.data)){
-        event.preventDefault();
-        show('В номере телефона можно вводить только цифры.');
-      }
-    });
-    phone.addEventListener('input',()=>{
-      const cleaned=phone.value.replace(/\D/g,'').slice(0,11);
-      if(phone.value!==cleaned){phone.value=cleaned;show('В номере телефона можно вводить только цифры.');}
-      else show(phone.value.length===11?message():'');
-    });
-    phone.addEventListener('blur',()=>show(message()));
-    phone.addEventListener('invalid',()=>show(message()));
-  });
 })();
