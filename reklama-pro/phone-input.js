@@ -16,6 +16,7 @@ if (phone && window.intlTelInput) {
     countryOrder: ['ru', 'kz', 'by', 'uz', 'kg', 'am', 'az', 'ge'],
     countryNameLocale: 'ru',
     uiTranslations: ru,
+    dropdownParent: document.body,
     separateDialCode: true,
     strictMode: true,
     placeholderNumberPolicy: 'AGGRESSIVE',
