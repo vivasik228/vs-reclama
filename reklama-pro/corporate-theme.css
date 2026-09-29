@@ -74,10 +74,12 @@ body.corporate-site[data-page]{background:var(--paper);font-family:var(--font);c
 .corporate-site .catalog-request__head{background:#fff9f2;border-bottom:1px solid #e6dfd3}
 .corporate-site .catalog-request__row{border-radius:5px;background:var(--paper)}
 .corporate-site .sign-request-info{background:#fff0e2;border-radius:7px;box-shadow:none}
-.corporate-site .contacts-grid{gap:32px;padding-top:50px;padding-bottom:70px}
-.corporate-site .contact-card{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding:26px 0}
-.corporate-site .contact-card h2{font-size:30px;letter-spacing:-.03em}
+.corporate-site .contacts-grid{grid-template-columns:minmax(0,1.4fr) minmax(280px,.6fr);gap:32px;padding-top:50px;padding-bottom:70px}
+.corporate-site .contact-card{min-width:0;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding:26px 0;overflow-wrap:anywhere}
+.corporate-site .contact-card h2{font-size:clamp(24px,2.5vw,30px);letter-spacing:-.03em;line-height:1.2}
+.corporate-site .contact-card p{max-width:70ch;white-space:normal}
 .corporate-site .map-wrap{border-radius:7px;overflow:hidden;background:transparent}
+@media(max-width:1200px){.corporate-site .contacts-grid{grid-template-columns:minmax(0,1fr)}.corporate-site .contact-card{padding:24px 0}.corporate-site .map-wrap{min-width:0}}
 .corporate-site .site-footer{background:#1c201b;color:#fff;padding:54px 0 28px}
 .corporate-site .site-footer__grid{gap:50px;grid-template-columns:1.7fr 1fr 1fr}
 .corporate-site .site-footer p{font:12px/1.9 Arial,sans-serif;color:#b8beb0}
