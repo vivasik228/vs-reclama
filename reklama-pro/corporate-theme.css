@@ -18,6 +18,7 @@ body.corporate-site[data-page]{background:var(--paper);font-family:var(--font);c
 .corporate-site .header-phone--2{font-size:12px;color:var(--muted)}
 .corporate-site .btn{border-radius:5px;box-shadow:none;font:700 13px/1.4 Arial,sans-serif;letter-spacing:0;min-height:48px;padding:15px 22px}
 .corporate-site .btn--primary,.corporate-site .btn--order{background:var(--orange);color:var(--brand-blue)!important;box-shadow:none}
+.corporate-site .btn--order{color:#fff!important}
 .corporate-site .btn--primary:hover,.corporate-site .btn--order:hover{background:#ff922e}
 .corporate-site .nav{display:flex;justify-content:space-between;gap:12px;min-height:54px;flex-wrap:nowrap}
 .corporate-site .nav>a,.corporate-site .nav-dropdown__trigger{font:700 13px/1.4 Arial,sans-serif;padding:0;height:54px;border-bottom-width:2px;white-space:nowrap}
