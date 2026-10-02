@@ -19,6 +19,9 @@ body.corporate-site[data-page]{background:var(--paper);font-family:var(--font);c
 .corporate-site .btn{border-radius:5px;box-shadow:none;font:700 13px/1.4 Arial,sans-serif;letter-spacing:0;min-height:48px;padding:15px 22px}
 .corporate-site .btn--primary,.corporate-site .btn--order{background:var(--orange);color:#fff!important;box-shadow:none}
 .corporate-site .btn--primary:hover,.corporate-site .btn--order:hover{background:#ff922e}
+.corporate-site .btn--primary:hover,.corporate-site .btn--order:hover,.corporate-site .corporate-home .button-orange,.corporate-site .corporate-home .button-orange:hover{color:#fff!important}
+.corporate-site :is(.btn--primary,.btn--order,.button-orange) :is(span,strong,b,em){color:inherit!important}
+.corporate-site .corporate-home .direction-list>a:hover .row-arrow{color:#fff}
 .corporate-site .nav{display:flex;justify-content:space-between;gap:12px;min-height:54px;flex-wrap:nowrap}
 .corporate-site .nav>a,.corporate-site .nav-dropdown__trigger{font:700 13px/1.4 Arial,sans-serif;padding:0;height:54px;border-bottom-width:2px;white-space:nowrap}
 .corporate-site .nav-dropdown__panel{padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:0 16px 38px #22252114}
