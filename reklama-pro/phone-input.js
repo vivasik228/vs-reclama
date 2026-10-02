@@ -1,7 +1,7 @@
 import ru from './vendor/intl-tel-input/js/ru.js';
 
 const phone = document.querySelector('.application-form input[type="tel"], .catalog-request__form input[name="phone"]');
-const cisCountries = ['ru', 'kz', 'by', 'uz', 'kg', 'am', 'az', 'tj', 'tm', 'md', 'ua'];
+const cisCountries = ['ru', 'kz', 'by', 'uz', 'kg', 'am', 'az', 'tj', 'tm', 'md'];
 
 if (phone && window.intlTelInput) {
   const form = phone.form;
