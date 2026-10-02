@@ -10,7 +10,7 @@ body.corporate-site[data-page]{background:var(--paper);font-family:var(--font);c
 .corporate-site .site-header.is-scrolled{box-shadow:none}
 .corporate-site .header-top,.corporate-site .header-nav{background:var(--paper);border:0}
 .corporate-site .header-top__inner{min-height:120px;border-bottom:1px solid var(--line);gap:32px;padding:10px 0}
-.corporate-site .logo-link img{width:200px;max-height:none;mix-blend-mode:multiply}
+.corporate-site .logo-link img{width:200px;max-height:none;mix-blend-mode:normal}
 .corporate-site .header-address{font:12px/1.6 Arial,sans-serif;color:var(--muted);gap:10px}
 .corporate-site .header-address__icon{display:none}
 .corporate-site .header-phone{font:700 17px/1.5 Arial,sans-serif;margin:0;color:var(--ink)}
