@@ -15,7 +15,7 @@
     'markirovka-trub':[['Ленты-маркеры','lenty-markery.html'],['Отсылка к ГОСТу','otssylka-k-gostu.html']]
   };
   const group=groups[document.body.dataset.page];
-  if(group){const nav=document.createElement('nav');nav.className='related-directions';nav.setAttribute('aria-label','Услуги направления');for(const [name,href] of group){const a=document.createElement('a');a.href=href;a.textContent=name+' ↗';nav.append(a);}document.querySelector('.page-hero .container')?.append(nav);}
+  if(group){const nav=document.createElement('nav');nav.className='related-directions';nav.setAttribute('aria-label','Услуги направления');for(const [name,href] of group){const a=document.createElement('a');a.href=href;a.textContent=name;nav.append(a);}document.querySelector('.page-hero .container')?.append(nav);}
 
   const formGrid=document.querySelector('.application-form__grid');
   const phoneField=formGrid?.querySelector('.phone-field');
