@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isSign ? 'ЗНАКИ:' : 'ПЛАКАТЫ:',
         ...items.map((values, index) => `${index + 1}. ${itemName}: ${values[0] || '—'}; размер: ${values[1] || '—'}; количество: ${values[2] || '—'}; материал: ${values[3] || '—'}`)
       ];
-      const subject = `Заявка на ${isSign ? 'знаки' : 'плакаты'} по ТБ — ${data.get('organization') || data.get('contact') || 'заказчик'}`;
+      const subject = `Заявка на ${isSign ? 'знаки' : 'плакаты'} по технике безопасности — ${data.get('organization') || data.get('contact') || 'заказчик'}`;
       if (window.prepareSiteRequest) {
         window.prepareSiteRequest(lines.join('\n'), subject, form);
       } else {
