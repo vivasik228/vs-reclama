@@ -3,12 +3,12 @@
 .photo-open:focus-visible, .photo-viewer button:focus-visible { outline:3px solid #ff7900; outline-offset:4px; }
 .photo-viewer { width:min(1100px,94vw); max-height:94dvh; padding:48px 20px 18px; border:0; border-radius:18px; background:#fffdfc; color:var(--brand-blue); }
 .photo-viewer::backdrop { background:rgba(0,0,0,.82); }
-.photo-viewer__close { position:absolute; top:6px; right:10px; width:44px; height:44px; font-size:32px; border:0; background:transparent; cursor:pointer; }
+.photo-viewer__close { position:absolute; top:6px; right:10px; width:44px; height:44px; font-size:38.4px; border:0; background:transparent; cursor:pointer; }
 .photo-viewer__media { height:min(65vh,750px); display:grid; place-items:center; }
 .photo-viewer__media img, .photo-viewer__media svg { display:block; width:100%; height:100%; max-height:65vh; object-fit:contain; }
 .photo-viewer__caption { margin:12px 0; text-align:center; }
 .photo-viewer__controls { display:flex; justify-content:center; gap:18px; }
-.photo-viewer__controls button { min-width:64px; min-height:44px; border:0; border-radius:12px; background:#fff0e2; font-size:25px; cursor:pointer; }
+.photo-viewer__controls button { min-width:64px; min-height:44px; border:0; border-radius:12px; background:#fff0e2; font-size:30px; cursor:pointer; }
 .portfolio-card__media .photo-open { height:100%; }
 .portfolio-card__media .photo-open img { height:100%; object-fit:contain; }
 .form-field textarea, .request-result textarea { width:100%; box-sizing:border-box; padding:14px; border:1px solid #ccc; border-radius:12px; font:inherit; resize:vertical; background:white; color:var(--brand-blue); }
@@ -30,7 +30,7 @@ body[data-page="application"] .btn--order { display:none; }
 .photo-viewer__order[hidden] { display:none; }
 .selected-work { margin-bottom:24px; padding:18px; background:#fff1e5; border:1px solid #ffd3ad; border-radius:14px; overflow-wrap:anywhere; }
 .selected-work p { margin:8px 0; }
-@media(max-width:600px) { .portfolio-filters { gap:8px; } .portfolio-filters button { padding:10px 13px; font-size:14px; } }
+@media(max-width:600px) { .portfolio-filters { gap:8px; } .portfolio-filters button { padding:10px 13px; font-size:16.8px; } }
 /* A 5–9% orange wash separates information cards from the page background. */
 .content-card:not(.thermo-copy):not(.dtf-copy):not(.embroidery-copy):not(.logo-works),
 .thermo-copy__block, .dtf-copy__block, .embroidery-copy__block, .logo-works__block,
